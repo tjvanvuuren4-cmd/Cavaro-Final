@@ -90,15 +90,27 @@ function FAQItem({ q, a }) {
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="overflow-hidden"
-          >
-            <p className="pb-5 text-sm font-light text-muted-foreground leading-relaxed">
-              {a}
-            </p>
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55 }}
+        className="relative z-10 mx-auto mb-16 max-w-3xl text-center"
+        >
+        <p className="mb-4 text-sm uppercase tracking-[0.3em] text-yellow-400">
+        Knowledge & Support
+        </p>
+
+        <h2 className="text-4xl font-semibold md:text-6xl">
+         Frequently Asked{" "}
+        <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
+         Questions
+        </span>
+        </h2>
+
+        <p className="mt-6 text-lg leading-8 text-zinc-400">
+         Everything you need to know about Cavaro’s premium learning
+         experience, enrollment, pricing, and course access.
+        </p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -108,7 +120,11 @@ function FAQItem({ q, a }) {
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="py-24 sm:py-32 relative">
+    <section
+      id="faq"
+      className="relative overflow-hidden bg-black px-6 py-28 text-white"
+        >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.12),transparent_30%)]" />    
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -136,12 +152,12 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: gi * 0.1 }}
-              className="bg-card rounded-2xl border border-border/50 px-6 py-7"
+              className="rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-7 backdrop-blur-xl"
             >
               <div className="flex items-center gap-2.5 mb-6">
-                <div className="w-1 h-5 rounded-full bg-primary" />
-                <h3 className="font-sans font-semibold text-sm uppercase tracking-widest text-primary" style={{ letterSpacing: "0.15em" }}>
-                  {group.category}
+                <div className="h-5 w-1 rounded-full bg-yellow-400" />
+                <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
+                 {group.category}
                 </h3>
               </div>
               <div>
