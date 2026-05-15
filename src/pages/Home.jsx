@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "@/components/landing/Navbar";
 import WhyLearnWithUs from "@/components/landing/WhyLearnWithUs";
 import FeaturedCourse from "@/components/landing/FeaturedCourse";
-import CourseCatalog from "@/components/landing/CourseCatalog";
+import PremiumCourseCards from "@/components/PremiumCourseCards";
 import InstructorsSection from "@/components/landing/InstructorsSection";
 import Testimonials from "@/components/landing/Testimonials";
 import FAQSection from "@/components/landing/FAQSection";
@@ -17,7 +17,7 @@ export default function Home() {
       <LuxuryHero />
       <WhyLearnWithUs />
       <FeaturedCourse />
-      <CourseCatalog />
+      <PremiumCourseCards />
       <InstructorsSection />
       <Testimonials />
       <FAQSection />
