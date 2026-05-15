@@ -1,6 +1,7 @@
 import LuxuryHero from "@/components/LuxuryHero";
 import React from "react";
 import Navbar from "@/components/landing/Navbar";
+import LuxuryStats from "@/components/LuxuryStats";
 import WhyLearnWithUs from "@/components/landing/WhyLearnWithUs";
 import FeaturedCourse from "@/components/landing/FeaturedCourse";
 import PremiumCourseCards from "@/components/PremiumCourseCards";
@@ -15,6 +16,7 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans">
       <Navbar />
       <LuxuryHero />
+      <LuxuryStats />
       <WhyLearnWithUs />
       <FeaturedCourse />
       <PremiumCourseCards />

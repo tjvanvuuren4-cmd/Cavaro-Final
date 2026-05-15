@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X, Crown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useAuth } from "@/lib/AuthContext";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { navigateToLogin } = useAuth();
-
-  const handleLoginClick = (event) => {
-    event.preventDefault();
-    navigateToLogin();
-  };
 
   const links = [
     { label: "Courses", href: "#courses" },
@@ -58,23 +57,30 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden items-center gap-3 md:flex">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={handleLoginClick}
-              className="text-xs uppercase tracking-widest text-zinc-300 hover:bg-white/5 hover:text-yellow-400"
-            >
-              Member Access
-            </Button>
+          <div className="hidden items-center gap-4 md:flex">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="text-xs uppercase tracking-widest text-zinc-300 transition hover:text-yellow-400">
+                  Member Access
+                </button>
+              </SignInButton>
 
-            <Button
-              size="sm"
-              onClick={handleLoginClick}
-              className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-5 text-xs font-semibold uppercase tracking-widest text-black shadow-lg shadow-yellow-900/30 hover:scale-105"
+              <SignUpButton mode="modal">
+                <button className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
+                  Join Cavaro
+                </button>
+              </SignUpButton>
+            </SignedOut>
+
+            <SignedIn>
+             <a
+               href="/dashboard"
+              className="text-xs uppercase tracking-[0.2em] text-yellow-400 transition hover:text-yellow-300"
             >
-              Join Cavaro
-            </Button>
+              Dashboard
+            </a>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
           </div>
 
           <button
@@ -107,22 +113,28 @@ export default function Navbar() {
               ))}
 
               <div className="grid grid-cols-2 gap-3 border-t border-white/10 pt-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-xs uppercase tracking-widest text-zinc-300"
-                  onClick={handleLoginClick}
-                >
-                  Access
-                </Button>
+                <SignedOut>
+                  <SignInButton mode="modal">
+                    <button className="rounded-full border border-white/15 px-4 py-3 text-xs uppercase tracking-widest text-zinc-300">
+                      Access
+                    </button>
+                  </SignInButton>
 
-                <Button
-                  size="sm"
-                  className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 text-xs font-semibold uppercase tracking-widest text-black"
-                  onClick={handleLoginClick}
-                >
-                  Join
-                </Button>
+                  <SignUpButton mode="modal">
+                    <button className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-4 py-3 text-xs font-semibold uppercase tracking-widest text-black">
+                      Join
+                    </button>
+                  </SignUpButton>
+                </SignedOut>
+
+                <SignedIn>
+                  <div className="col-span-2 flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                    <span className="text-xs uppercase tracking-[0.2em] text-yellow-400">
+                      Member Access
+                    </span>
+                    <UserButton afterSignOutUrl="/" />
+                  </div>
+                </SignedIn>
               </div>
             </div>
           </motion.div>

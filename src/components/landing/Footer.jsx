@@ -1,46 +1,47 @@
 import React from "react";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, Crown } from "lucide-react";
 
 const quickLinks = [
-  { label: "Our Courses", href: "#" },
-  { label: "About us", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Service", href: "/terms-of-service" },
-  { label: "Affiliate Terms of Use", href: "/affiliate-terms-of-use" },
+  { label: "Programs", href: "#courses" },
+  { label: "Why Cavaro", href: "#why" },
+  { label: "Experts", href: "#instructors" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
 ];
 
-const categories = ["Cybersecurity", "Blockchain"];
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Service", href: "/terms-of-service" },
+  { label: "Affiliate Terms", href: "/affiliate-terms-of-use" },
+];
 
 export default function Footer() {
   return (
-    <footer id="footer" className="border-t border-border/40 bg-card/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <div className="mb-6">
-              <div className="font-serif text-2xl font-bold text-primary tracking-widest" style={{ letterSpacing: '0.18em' }}>
-                CAVARO
-              </div>
-              <div className="font-sans text-[9px] font-light text-muted-foreground uppercase tracking-widest mt-0.5" style={{ letterSpacing: '0.35em' }}>
-                2.0 · Academy
+    <footer id="footer" className="relative overflow-hidden border-t border-white/10 bg-black text-white">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <div className="mb-6 flex items-center gap-3">
+              <Crown className="h-6 w-6 text-yellow-400" />
+              <div>
+                <div className="text-2xl font-bold tracking-[0.18em] text-yellow-400">CAVARO</div>
+                <div className="mt-1 text-[9px] uppercase tracking-[0.35em] text-zinc-500">
+                  Elevate · Invest · Become
+                </div>
               </div>
             </div>
-            <p className="text-sm font-light text-muted-foreground leading-relaxed">
-              Leading online platform for cybersecurity and blockchain education. Master the skills that matter in today's digital economy.
+            <p className="text-sm leading-7 text-zinc-400">
+              A luxury education marketplace built for ambitious learners,
+              curated premium programs, and modern professional growth.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="font-sans font-medium text-foreground mb-5 text-[10px] uppercase tracking-widest" style={{ letterSpacing: '0.2em' }}>
-              Quick Links
-            </h4>
+            <h4 className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-yellow-400">Explore</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm font-light text-muted-foreground hover:text-primary transition-colors">
+                  <a href={link.href} className="text-sm text-zinc-400 transition hover:text-yellow-400">
                     {link.label}
                   </a>
                 </li>
@@ -48,45 +49,39 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Categories */}
           <div>
-            <h4 className="font-sans font-medium text-foreground mb-5 text-[10px] uppercase tracking-widest" style={{ letterSpacing: '0.2em' }}>
-              Categories
-            </h4>
+            <h4 className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-yellow-400">Legal</h4>
             <ul className="space-y-3">
-              {categories.map((cat) => (
-                <li key={cat}>
-                  <a href="#" className="text-sm font-light text-muted-foreground hover:text-primary transition-colors">
-                    {cat}
+              {legalLinks.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-zinc-400 transition hover:text-yellow-400">
+                    {link.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="font-sans font-medium text-foreground mb-5 text-[10px] uppercase tracking-widest" style={{ letterSpacing: '0.2em' }}>
-              Contact
-            </h4>
+            <h4 className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-yellow-400">Contact</h4>
             <ul className="space-y-4">
-              <li className="flex items-center gap-2.5 text-sm font-light text-muted-foreground">
-                <Phone className="w-4 h-4 text-primary shrink-0" />
+              <li className="flex items-center gap-3 text-sm text-zinc-400">
+                <Phone className="h-4 w-4 shrink-0 text-yellow-400" />
                 +27 000 00000
               </li>
-              <li className="flex items-center gap-2.5 text-sm font-light text-muted-foreground">
-                <Mail className="w-4 h-4 text-primary shrink-0" />
-                Support@cavaro.co.za
+              <li className="flex items-center gap-3 text-sm text-zinc-400">
+                <Mail className="h-4 w-4 shrink-0 text-yellow-400" />
+                support@cavaro.co.za
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-border/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <p className="text-center text-xs font-light text-muted-foreground tracking-widest" style={{ letterSpacing: '0.1em' }}>
-            © 2026 CAVARO 2.0. All rights reserved.
+      <div className="relative z-10 border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-6 py-6">
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-zinc-500">
+            © 2026 Cavaro. All rights reserved.
           </p>
         </div>
       </div>

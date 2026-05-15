@@ -1,7 +1,5 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Star, Clock, Users } from "lucide-react";
+import { ShoppingCart, Star, Clock, Users, Crown } from "lucide-react";
 import { motion } from "framer-motion";
 import { courses, USD_TO_ZAR } from "@/lib/courseData";
 
@@ -12,88 +10,107 @@ export default function FeaturedCourse() {
   const priceZAR = (featured.priceUSD * USD_TO_ZAR).toFixed(0);
 
   return (
-    <section className="py-24 sm:py-32 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-black px-6 py-28 text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.12),transparent_30%)]" />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.55 }}
+          className="mx-auto mb-16 max-w-3xl text-center"
         >
-          <p className="text-xs font-sans font-light text-primary uppercase tracking-widest mb-4" style={{ letterSpacing: '0.25em' }}>
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-yellow-400">
             Flagship Programme
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl font-light text-foreground">
-            Our Most Popular Course
+
+          <h2 className="text-4xl font-semibold md:text-6xl">
+            Featured Premium{" "}
+            <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
+              Course
+            </span>
           </h2>
-          <p className="mt-4 font-light text-muted-foreground text-lg max-w-2xl mx-auto">
-            Join thousands of students in our flagship cybersecurity program
+
+          <p className="mt-6 text-lg leading-8 text-zinc-400">
+            A curated premium learning pathway designed for ambitious
+            professionals ready to upgrade their future.
           </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-2xl border border-border/50 bg-card"
+          className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl"
         >
-          <div className="grid lg:grid-cols-2">
-            <div className="relative aspect-video lg:aspect-auto overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+
+          <div className="relative z-10 grid lg:grid-cols-2">
+            <div className="relative min-h-[320px] overflow-hidden">
               <img
                 src={featured.image}
                 alt={featured.title}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/50 hidden lg:block" />
-              <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground border-0 font-medium text-[10px] uppercase tracking-widest" style={{ letterSpacing: '0.15em' }}>
+
+              <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/30 to-black lg:from-transparent lg:to-black" />
+
+              <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-black/60 px-4 py-2 text-xs uppercase tracking-[0.2em] text-yellow-400 backdrop-blur">
+                <Crown className="h-4 w-4" />
                 Most Popular
-              </Badge>
+              </div>
             </div>
 
-            <div className="p-8 lg:p-14 flex flex-col justify-center">
-              <p className="text-[10px] font-sans font-light text-primary uppercase tracking-widest mb-4" style={{ letterSpacing: '0.25em' }}>
+            <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
+              <p className="mb-4 text-xs uppercase tracking-[0.3em] text-yellow-400">
                 {featured.category}
               </p>
-              <h3 className="font-serif text-3xl sm:text-4xl font-light text-foreground mb-5 leading-tight">
+
+              <h3 className="mb-5 text-3xl font-semibold leading-tight md:text-5xl">
                 {featured.title}
               </h3>
-              <p className="font-light text-muted-foreground leading-relaxed mb-8 text-base">
+
+              <p className="mb-8 text-base leading-8 text-zinc-400">
                 {featured.description}
               </p>
 
-              <div className="flex flex-wrap gap-5 mb-10 text-sm font-light text-muted-foreground">
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-primary" />
+              <div className="mb-10 flex flex-wrap gap-4 text-sm text-zinc-300">
+                <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
+                  <Clock className="h-4 w-4 text-yellow-400" />
                   {featured.duration}
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <Users className="w-4 h-4 text-primary" />
+
+                <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
+                  <Users className="h-4 w-4 text-yellow-400" />
                   {featured.students.toLocaleString()} students
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <Star className="w-4 h-4 text-primary fill-primary" />
+
+                <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
+                  <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   {featured.rating}
                 </span>
               </div>
 
-              <div className="flex items-end gap-6 flex-wrap">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <div className="font-serif text-4xl font-semibold text-primary">
+                  <p className="text-4xl font-semibold text-yellow-400">
                     R {Number(priceZAR).toLocaleString()}
-                  </div>
-                  <div className="text-xs font-light text-muted-foreground mt-1 tracking-wider">
+                  </p>
+                  <p className="mt-1 text-xs tracking-wider text-zinc-500">
                     ≈ ${featured.priceUSD.toFixed(2)} USD
-                  </div>
+                  </p>
                 </div>
+
                 <div className="flex gap-3">
-                  <Button size="icon" variant="outline" className="border-border/50 hover:border-primary/40 h-11 w-11">
-                    <ShoppingCart className="w-5 h-5" />
-                  </Button>
-                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium h-11 px-9 text-xs uppercase tracking-widest" style={{ letterSpacing: '0.15em' }}>
+                  <button className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-yellow-400/60 hover:bg-white/5">
+                    <ShoppingCart className="h-5 w-5" />
+                  </button>
+
+                  <button className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
                     Enroll Now
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>

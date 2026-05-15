@@ -1,41 +1,79 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Crown } from "lucide-react";
+import { SignedIn, SignedOut, SignUpButton } from "@clerk/clerk-react";
 import { motion } from "framer-motion";
 
 export default function CTASection() {
   return (
-    <section className="py-28 sm:py-36 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-background to-accent/8" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary/4 rounded-full blur-3xl" />
+    <section className="relative overflow-hidden bg-black px-6 py-32 text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12),transparent_35%)]" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-      >
-        <p className="text-xs font-sans font-light text-primary uppercase tracking-widest mb-6" style={{ letterSpacing: '0.25em' }}>
-          Begin Your Journey
-        </p>
-        <h2 className="font-serif font-light text-foreground leading-tight" style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}>
-          Ready to Start Your Journey?
-        </h2>
-        <p className="mt-6 text-lg font-light text-muted-foreground max-w-xl mx-auto leading-relaxed">
-          Join our community of learners and take your skills to the next level
-        </p>
-        <div className="mt-12 flex justify-center">
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium text-sm px-12 h-12 group tracking-widest uppercase"
-            style={{ letterSpacing: '0.15em' }}
+      <div className="relative z-10 mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-12 text-center backdrop-blur-xl md:p-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10"
+        >
+          <div className="mb-6 flex justify-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-yellow-500/20 bg-yellow-500/10">
+              <Crown className="h-8 w-8 text-yellow-400" />
+            </div>
+          </div>
+
+          <p className="mb-5 text-sm uppercase tracking-[0.3em] text-yellow-400">
+            Begin Your Transformation
+          </p>
+
+          <h2 className="text-4xl font-semibold leading-tight md:text-6xl">
+            Invest In The{" "}
+            <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
+              Future Version
+            </span>{" "}
+            Of Yourself
+          </h2>
+
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-zinc-400">
+            Cavaro delivers premium learning experiences designed to help
+            ambitious individuals unlock modern skills, confidence, and
+            professional growth.
+          </p>
+
+          <div className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row">
+           <SignedOut>
+            <SignUpButton mode="modal">
+             <button className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 font-semibold text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
+               Explore Premium Courses
+               <ArrowRight
+                className="ml-2 transition group-hover:translate-x-1"
+                size={18}
+              />
+            </button>
+          </SignUpButton>
+         </SignedOut>
+
+         <SignedIn>
+          <a
+           href="/dashboard"
+           className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 font-semibold text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105"
           >
-            Start Learning Today
-            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
-      </motion.div>
+            Go To Dashboard
+             <ArrowRight
+              className="ml-2 transition group-hover:translate-x-1"
+              size={18}
+           />
+            </a>
+            </SignedIn>
+
+            <button className="rounded-full border border-white/15 px-8 py-4 font-semibold text-white transition hover:border-yellow-400/60 hover:bg-white/5">
+            Learn More
+           </button>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

@@ -7,27 +7,31 @@ const features = [
     icon: GraduationCap,
     title: "Expert Instructors",
     description:
-      "Learn from industry professionals with years of real-world experience in cybersecurity and blockchain",
+      "Learn from experienced professionals and curated industry specialists across cybersecurity, blockchain, and emerging technologies.",
   },
   {
     icon: Wrench,
     title: "Practical Skills",
     description:
-      "Hands-on projects and real-world scenarios to build skills you can use immediately in your career",
+      "Gain real-world knowledge through hands-on learning experiences designed for modern career advancement and professional growth.",
   },
   {
     icon: Award,
-    title: "Certification",
+    title: "Premium Certifications",
     description:
-      "Earn industry-recognized certificates to showcase your expertise to employers and clients",
+      "Build credibility with industry-recognized certificates and premium learning pathways designed to elevate your future.",
   },
 ];
 
 export default function WhyLearnWithUs() {
   return (
-    <section id="why" className="py-24 sm:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="why"
+      className="relative overflow-hidden bg-black px-6 py-28 text-white"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(212,175,55,0.12),transparent_30%)]" />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,18 +39,25 @@ export default function WhyLearnWithUs() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-sans font-light text-primary uppercase tracking-widest mb-4" style={{ letterSpacing: '0.25em' }}>
-            Why Choose Us
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-yellow-400">
+            Why Cavaro
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl font-light text-foreground">
-            Why Learn With Us?
+
+          <h2 className="text-4xl font-semibold md:text-6xl">
+            A Premium Learning{" "}
+            <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
+              Experience
+            </span>
           </h2>
-          <p className="mt-5 font-light text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Join thousands of professionals advancing their careers with our comprehensive courses
+
+          <p className="mt-6 text-lg leading-8 text-zinc-400 max-w-2xl mx-auto">
+            Cavaro delivers curated premium education pathways designed for
+            ambitious professionals seeking modern growth and industry-ready
+            expertise.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid gap-8 md:grid-cols-3">
           {features.map((feature, idx) => (
             <motion.div
               key={feature.title}
@@ -54,17 +65,20 @@ export default function WhyLearnWithUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="group relative p-9 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-400"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-9 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-yellow-500/40"
             >
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/4 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-              <div className="relative">
-                <div className="w-14 h-14 rounded-xl bg-primary/8 flex items-center justify-center mb-7 group-hover:bg-primary/15 transition-colors border border-primary/20">
-                  <feature.icon className="w-6 h-6 text-primary" />
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+
+              <div className="relative z-10">
+                <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl border border-yellow-500/20 bg-yellow-500/10">
+                  <feature.icon className="h-6 w-6 text-yellow-400" />
                 </div>
-                <h3 className="font-serif text-2xl font-medium text-foreground mb-3">
+
+                <h3 className="mb-3 text-2xl font-semibold text-white">
                   {feature.title}
                 </h3>
-                <p className="font-light text-muted-foreground leading-relaxed text-sm">
+
+                <p className="text-sm leading-7 text-zinc-400">
                   {feature.description}
                 </p>
               </div>

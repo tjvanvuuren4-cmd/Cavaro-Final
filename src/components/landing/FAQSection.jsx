@@ -136,9 +136,12 @@ export default function FAQSection() {
           <p className="text-xs font-sans font-light text-primary uppercase tracking-widest mb-4" style={{ letterSpacing: "0.25em" }}>
             Got Questions?
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold italic text-foreground">
-            Frequently Asked Questions
-          </h2>
+          <h2 className="text-4xl font-semibold md:text-6xl">
+             Frequently Asked{" "}
+             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
+              Questions
+             </span>
+           </h2>
           <p className="mt-5 font-light text-muted-foreground text-lg max-w-xl mx-auto leading-relaxed">
             Everything you need to know about enrolling, paying in ZAR, and accessing your courses.
           </p>
