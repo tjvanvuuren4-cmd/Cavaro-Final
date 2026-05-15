@@ -49,8 +49,9 @@ export default function FeaturedCourse() {
 
           <div className="relative z-10 grid lg:grid-cols-2">
             <div className="relative min-h-[320px] overflow-hidden">
+
               <img
-                src={featured.image}
+                src="/media/cavaro-featured-course.png"
                 alt={featured.title}
                 className="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105"
               />
