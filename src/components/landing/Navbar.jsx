@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Crown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useAuth } from '@/lib/AuthContext';
+import { useAuth } from "@/lib/AuthContext";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { navigateToLogin } = useAuth();
 
-  /**
-   * @param {React.MouseEvent<HTMLButtonElement>} event
-   */
   const handleLoginClick = (event) => {
     event.preventDefault();
     navigateToLogin();
   };
-
-  const handleGetStartedClick = handleLoginClick;
 
   const links = [
     { label: "Courses", href: "#courses" },
@@ -27,58 +22,66 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 py-3">
+    <nav className="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
+      <div className="mx-auto max-w-7xl rounded-full border border-yellow-500/20 bg-black/45 px-5 shadow-2xl shadow-black/40 backdrop-blur-2xl">
+        <div className="flex h-16 items-center justify-between">
           <a href="#" className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-yellow-500/30 bg-yellow-500/10">
+              <Crown className="h-5 w-5 text-yellow-400" />
+            </div>
+
             <div className="flex flex-col leading-none">
-              <span className="font-serif text-2xl font-bold tracking-widest text-primary" style={{ letterSpacing: '0.18em' }}>
+              <span
+                className="font-serif text-2xl font-bold tracking-widest text-yellow-400"
+                style={{ letterSpacing: "0.18em" }}
+              >
                 CAVARO
               </span>
-              <span className="font-sans text-[9px] font-light tracking-widest2 text-muted-foreground uppercase" style={{ letterSpacing: '0.35em' }}>
-                2.0 · Academy
+              <span
+                className="text-[9px] font-light uppercase text-zinc-400"
+                style={{ letterSpacing: "0.35em" }}
+              >
+                Elevate · Invest · Become
               </span>
             </div>
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden items-center gap-8 md:flex">
             {links.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-light tracking-wider text-muted-foreground hover:text-foreground transition-colors uppercase"
-                style={{ letterSpacing: '0.1em' }}
+                className="relative text-xs font-light uppercase tracking-widest text-zinc-300 transition hover:text-yellow-400"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden items-center gap-3 md:flex">
             <Button
               variant="ghost"
               size="sm"
               onClick={handleLoginClick}
-              className="text-muted-foreground hover:text-foreground font-light tracking-wider text-xs uppercase"
-              style={{ letterSpacing: '0.1em' }}
+              className="text-xs uppercase tracking-widest text-zinc-300 hover:bg-white/5 hover:text-yellow-400"
             >
-              Log In
+              Member Access
             </Button>
+
             <Button
               size="sm"
-              onClick={handleGetStartedClick}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium tracking-wider text-xs uppercase px-5"
-              style={{ letterSpacing: '0.1em' }}
+              onClick={handleLoginClick}
+              className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-5 text-xs font-semibold uppercase tracking-widest text-black shadow-lg shadow-yellow-900/30 hover:scale-105"
             >
-              Get Started
+              Join Cavaro
             </Button>
           </div>
 
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-yellow-400"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
@@ -86,38 +89,40 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            className="mx-auto mt-3 max-w-7xl overflow-hidden rounded-3xl border border-yellow-500/20 bg-black/80 p-5 shadow-2xl backdrop-blur-2xl md:hidden"
           >
-            <div className="px-4 py-4 space-y-3">
+            <div className="space-y-3">
               {links.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="block text-xs text-muted-foreground hover:text-foreground py-2 uppercase tracking-widest"
+                  className="block rounded-xl px-4 py-3 text-xs uppercase tracking-widest text-zinc-300 hover:bg-white/5 hover:text-yellow-400"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="pt-3 border-t border-border flex gap-3">
+
+              <div className="grid grid-cols-2 gap-3 border-t border-white/10 pt-4">
                 <Button
-                variant="ghost"
-                size="sm"
-                className="flex-1 text-xs uppercase tracking-wider"
-                onClick={handleLoginClick}
-              >
-                Log In
-              </Button>
-              <Button
-                size="sm"
-                className="flex-1 bg-primary text-primary-foreground text-xs uppercase tracking-wider"
-                onClick={handleGetStartedClick}
-              >
-                Get Started
-              </Button>
+                  variant="ghost"
+                  size="sm"
+                  className="text-xs uppercase tracking-widest text-zinc-300"
+                  onClick={handleLoginClick}
+                >
+                  Access
+                </Button>
+
+                <Button
+                  size="sm"
+                  className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 text-xs font-semibold uppercase tracking-widest text-black"
+                  onClick={handleLoginClick}
+                >
+                  Join
+                </Button>
               </div>
             </div>
           </motion.div>

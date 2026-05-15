@@ -1,6 +1,6 @@
+import LuxuryHero from "@/components/LuxuryHero";
 import React from "react";
 import Navbar from "@/components/landing/Navbar";
-import Hero from "@/components/landing/Hero";
 import WhyLearnWithUs from "@/components/landing/WhyLearnWithUs";
 import FeaturedCourse from "@/components/landing/FeaturedCourse";
 import CourseCatalog from "@/components/landing/CourseCatalog";
@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <Navbar />
-      <Hero />
+      <LuxuryHero />
       <WhyLearnWithUs />
       <FeaturedCourse />
       <CourseCatalog />
