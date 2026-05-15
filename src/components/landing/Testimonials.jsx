@@ -1,60 +1,74 @@
 import React from "react";
-import { Card } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import { motion } from "framer-motion";
 import { testimonials } from "@/lib/courseData";
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 sm:py-32 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="relative overflow-hidden bg-black px-6 py-28 text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(212,175,55,0.12),transparent_30%)]" />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-16 max-w-3xl text-center"
         >
-          <p className="text-xs font-sans font-light text-primary uppercase tracking-widest mb-4" style={{ letterSpacing: '0.25em' }}>
-            Student Stories
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-yellow-400">
+            Success Stories
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl font-light text-foreground">
-            What Our Students Say
+
+          <h2 className="text-4xl font-semibold md:text-6xl">
+            Trusted By Ambitious{" "}
+            <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
+              Learners
+            </span>
           </h2>
-          <p className="mt-5 font-light text-muted-foreground text-lg max-w-2xl mx-auto">
-            Join thousands of satisfied learners worldwide
+
+          <p className="mt-6 text-lg leading-8 text-zinc-400">
+            Real experiences from people investing in their skills, confidence,
+            and future through premium learning pathways.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((t, idx) => (
             <motion.div
               key={t.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              transition={{ duration: 0.55, delay: idx * 0.12 }}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-yellow-500/40"
             >
-              <Card className="relative p-8 bg-card border-border/50 h-full hover:border-primary/25 transition-colors duration-400">
-                <Quote className="w-8 h-8 text-primary/15 mb-5" />
-                <div className="flex gap-1 mb-5">
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+
+              <div className="relative z-10">
+                <Quote className="mb-6 h-10 w-10 text-yellow-400/40" />
+
+                <div className="mb-6 flex gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 text-primary fill-primary" />
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <p className="font-serif font-light text-foreground/80 leading-relaxed mb-8 text-lg italic">
-                  "{t.text}"
+
+                <p className="mb-8 text-lg italic leading-8 text-zinc-300">
+                  “{t.text}”
                 </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center font-serif font-medium text-sm text-primary border border-primary/20">
+
+                <div className="flex items-center gap-4 border-t border-white/10 pt-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-yellow-500/30 bg-yellow-500/10 text-sm font-semibold text-yellow-400">
                     {t.avatar}
                   </div>
+
                   <div>
-                    <p className="font-sans font-medium text-foreground text-sm">{t.name}</p>
-                    <p className="text-xs font-light text-muted-foreground tracking-wider">{t.role}</p>
+                    <p className="font-semibold text-white">{t.name}</p>
+                    <p className="text-sm text-zinc-400">{t.role}</p>
                   </div>
                 </div>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </div>
