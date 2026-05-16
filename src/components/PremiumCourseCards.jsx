@@ -47,6 +47,15 @@ const courses = [
     price: "R 37,400",
     icon: Cloud,
   },
+  {
+    title: "Full-Stack Web Development-Boot Camp",
+    description:
+      "Unlike shorter format boot Camps, this extended programme provides a broader foundation in web development and software engineering. It equips participants with the technical competencies and practical problem-solving skills required to respond to the evolving needs of the tech industry.",
+    duration: "6 Months",
+    category: "Cloud Security",
+    price: "R 79,500",
+    icon: Cloud,
+  },
 ];
 
 export default function PremiumCourseCards() {
