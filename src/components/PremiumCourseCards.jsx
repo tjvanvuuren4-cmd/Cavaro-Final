@@ -8,7 +8,7 @@ const courses = [
       "Master modern cybersecurity principles including threat analysis, vulnerability assessment, incident response, and enterprise defense strategies.",
     duration: "14 Weeks",
     category: "Cybersecurity",
-    price: "R 51,800",
+    price: "R 6,800",
     icon: ShieldCheck,
   },
   {
@@ -17,7 +17,7 @@ const courses = [
       "Deep dive into blockchain ecosystems, decentralized applications, smart contracts, and distributed ledger technologies.",
     duration: "20 Weeks",
     category: "Blockchain",
-    price: "R 61,050",
+    price: "R 14,450",
     icon: Bitcoin,
   },
   {
@@ -26,7 +26,7 @@ const courses = [
       "Learn professional penetration testing methodologies, exploit analysis, social engineering, and advanced security auditing.",
     duration: "18 Weeks",
     category: "Cybersecurity",
-    price: "R 88,800",
+    price: "R 26,350",
     icon: ShieldCheck,
   },
   {
@@ -35,7 +35,7 @@ const courses = [
       "Secure cloud environments including AWS, Azure, and GCP using encryption, identity management, and zero-trust architecture.",
     duration: "12 Weeks",
     category: "Cloud Security",
-    price: "R 40,700",
+    price: "R 37,400",
     icon: Cloud,
   },
 ];
