@@ -44,7 +44,7 @@ const courses = [
       "Deep dive into blockchain ecosystems, decentralized applications, smart contracts, and distributed ledger technologies.",
     duration: "18 Weeks",
     category: "Blockchain",
-    price: "R 14,450",
+    price: "R 14,500",
     icon: Bitcoin,
   },
   {
@@ -53,7 +53,7 @@ const courses = [
       "Learn professional penetration testing methodologies, exploit analysis, social engineering, and advanced security auditing.",
     duration: "20 Weeks",
     category: "Cybersecurity",
-    price: "R 26,350",
+    price: "R 26,400",
     icon: ShieldCheck,
   },
   {
