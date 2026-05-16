@@ -1,4 +1,8 @@
-import React from "react";
+import {
+  SignedIn,
+  SignedOut,
+  SignUpButton,
+} from "@clerk/clerk-react";
 import { ShoppingCart, Star, Clock, Users, Crown } from "lucide-react";
 import { motion } from "framer-motion";
 import { courses, USD_TO_ZAR } from "@/lib/courseData";
@@ -107,12 +111,25 @@ export default function FeaturedCourse() {
                 <div className="flex gap-3">
                   <button className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-yellow-400/60 hover:bg-white/5">
                     <ShoppingCart className="h-5 w-5" />
-                  </button>
+                </button>
 
-                  <button className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
+                 <SignedOut>
+                  <SignUpButton mode="modal">
+                   <button className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
                     Enroll Now
-                  </button>
-                </div>
+                   </button>
+                  </SignUpButton>
+                 </SignedOut>
+
+                 <SignedIn>
+                  <a
+                    href="/dashboard"
+                    className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105"
+                 >
+                   Go To Dashboard
+                </a>
+               </SignedIn>
+              </div>
               </div>
             </div>
           </div>

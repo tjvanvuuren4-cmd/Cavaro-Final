@@ -1,4 +1,4 @@
-import React from "react";
+import { SignedIn, SignedOut, SignUpButton } from "@clerk/clerk-react";
 import { ShieldCheck, Bitcoin, Cloud } from "lucide-react";
 
 const courses = [
@@ -103,7 +103,22 @@ export default function PremiumCourseCards() {
                   </p>
 
                   <button className="mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400 transition hover:text-yellow-300">
-                    Explore Course →
+                  <SignedOut>
+                   <SignUpButton mode="modal">
+                    <button className="mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400 transition hover:text-yellow-300">
+                     Explore Course →
+                    </button>
+                   </SignUpButton>
+                  </SignedOut>
+
+                  <SignedIn>
+                    <a
+                      href="/dashboard"
+                      className="mt-8 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400 transition hover:text-yellow-300"
+                    >
+                      Go To Dashboard →
+                    </a>
+                   </SignedIn>
                   </button>
                 </div>
               </div>

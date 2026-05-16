@@ -12,7 +12,7 @@ const faqs = [
       },
       {
         q: "Is there a minimum age requirement?",
-        a: "You must be at least 18 years old to enroll. Students aged 16–17 may enroll with written parental or guardian consent.",
+        a: "You must be at least 18 years old to enroll. Students aged 16-17 may enroll with written parental or guardian consent.",
       },
       {
         q: "Can I enroll in multiple courses at the same time?",
@@ -108,7 +108,7 @@ function FAQItem({ q, a }) {
         </h2>
 
         <p className="mt-6 text-lg leading-8 text-zinc-400">
-         Everything you need to know about Cavaro’s premium learning
+         Everything you need to know about Cavaro's premium learning
          experience, enrollment, pricing, and course access.
         </p>
           </motion.div>
