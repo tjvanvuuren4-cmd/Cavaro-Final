@@ -12,6 +12,15 @@ const courses = [
     icon: ShieldCheck,
   },
   {
+    title: "Certificate in Cyber Security",
+    description:
+      "Get on the fast track to a career in cybersecurity.In this certificate program, you'll learn in-demand skills, and get AI training from Google experts. Learn at your own pace, no degree or experience required.",
+    duration: "8 Weeks",
+    category: "Cybersecurity",
+    price: "R 3,600",
+    icon: ShieldCheck,
+  },
+  {
     title: "Blockchain Development & Architecture",
     description:
       "Deep dive into blockchain ecosystems, decentralized applications, smart contracts, and distributed ledger technologies.",
