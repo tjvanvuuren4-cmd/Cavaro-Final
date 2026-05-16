@@ -3,12 +3,12 @@ import { ShieldCheck, Bitcoin, Cloud } from "lucide-react";
 
 const courses = [
   {
-    title: "Cybersecurity Fundamentals & Threat Defense",
+    title: "Cybersecurity and Privacyy",
     description:
-      "Master modern cybersecurity principles including threat analysis, vulnerability assessment, incident response, and enterprise defense strategies.",
-    duration: "14 Weeks",
+      "This course has been designed for individuals seeking entry-level positions in IT support. Whether you're a recent graduate, a career changer, or someone looking to kick start your career in the tech industry, it will provide you with the foundational knowledge and practical skills needed to excel in this field.",
+    duration: "4 Weeks",
     category: "Cybersecurity",
-    price: "R 6,800",
+    price: "R 3,350",
     icon: ShieldCheck,
   },
   {
@@ -27,6 +27,15 @@ const courses = [
     duration: "12 Weeks",
     category: "Data Analytics",
     price: "R 4,700",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Cybersecurity Fundamentals & Threat Defense",
+    description:
+      "Master modern cybersecurity principles including threat analysis, vulnerability assessment, incident response, and enterprise defense strategies.",
+    duration: "14 Weeks",
+    category: "Cybersecurity",
+    price: "R 6,800",
     icon: ShieldCheck,
   },
   {
