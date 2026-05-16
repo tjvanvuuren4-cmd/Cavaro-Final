@@ -3,12 +3,12 @@ import { ShieldCheck, Bitcoin, Cloud } from "lucide-react";
 
 const courses = [
   {
-    title: "Cybersecurity and Privacyy",
+    title: "Cybersecurity and Privacy",
     description:
       "This course has been designed for individuals seeking entry-level positions in IT support. Whether you're a recent graduate, a career changer, or someone looking to kick start your career in the tech industry, it will provide you with the foundational knowledge and practical skills needed to excel in this field.",
     duration: "4 Weeks",
     category: "Cybersecurity",
-    price: "R 3,350",
+    price: "R 3,400",
     icon: ShieldCheck,
   },
   {
@@ -17,7 +17,7 @@ const courses = [
       "Get on the fast track to a career in cybersecurity.In this certificate program, you'll learn in-demand skills, and get AI training from Google experts. Learn at your own pace, no degree or experience required.",
     duration: "8 Weeks",
     category: "Cybersecurity",
-    price: "R 3,600",
+    price: "R 3,900",
     icon: ShieldCheck,
   },
   {
@@ -42,7 +42,7 @@ const courses = [
     title: "Blockchain Development & Architecture",
     description:
       "Deep dive into blockchain ecosystems, decentralized applications, smart contracts, and distributed ledger technologies.",
-    duration: "20 Weeks",
+    duration: "18 Weeks",
     category: "Blockchain",
     price: "R 14,450",
     icon: Bitcoin,
@@ -51,7 +51,7 @@ const courses = [
     title: "Ethical Hacking & Penetration Testing",
     description:
       "Learn professional penetration testing methodologies, exploit analysis, social engineering, and advanced security auditing.",
-    duration: "18 Weeks",
+    duration: "20 Weeks",
     category: "Cybersecurity",
     price: "R 26,350",
     icon: ShieldCheck,
@@ -60,7 +60,7 @@ const courses = [
     title: "Cloud Security & Infrastructure Protection",
     description:
       "Secure cloud environments including AWS, Azure, and GCP using encryption, identity management, and zero-trust architecture.",
-    duration: "12 Weeks",
+    duration: "20 Weeks",
     category: "Cloud Security",
     price: "R 37,400",
     icon: Cloud,
