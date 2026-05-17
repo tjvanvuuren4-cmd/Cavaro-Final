@@ -4,6 +4,7 @@ import { queryClientInstance } from "@/lib/query-client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { CartProvider } from "@/lib/CartContext";
 import CreateProfile from "@/components/CreateProfile";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import PageNotFound from "./lib/PageNotFound";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -37,6 +38,7 @@ function App() {
           </Routes>
         </Router>
 
+        <WhatsAppButton />
         <Toaster />
       </QueryClientProvider>
     </CartProvider>
