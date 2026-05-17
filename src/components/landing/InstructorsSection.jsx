@@ -122,28 +122,29 @@ export default function InstructorsSection() {
           className="mx-auto mb-16 max-w-3xl text-center"
         >
           <p className="mb-4 text-sm uppercase tracking-[0.3em] text-yellow-400">
-            Expert-Led Learning
+            Featured Brands
           </p>
 
           <h2 className="text-4xl font-semibold md:text-6xl">
-            Learn From{" "}
+            Brands Built With{" "}
             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
-              Industry Experts
+              Cavaro
             </span>
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-400">
-            Cavaro connects ambitious learners with premium professional
-            development guided by experienced specialists and curated expertise.
+            Premium brands, websites, and business identities designed to elevate
+            online presence, improve customer trust, and create modern digital
+            experiences.
           </p>
         </motion.div>
 
         <div className="mb-16 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-4">
-          {[
-            { value: "48+", label: "Years Combined Experience" },
-            { value: "12", label: "Industry Certifications" },
-            { value: "Global", label: "Learning Access" },
-            { value: "4.8★", label: "Average Rating" },
+          [
+           { value: "3", label: "Featured Brands" },
+            { value: "Premium", label: "Digital Presence" },
+            { value: "Modern", label: "Business Solutions" },
+            { value: "Growth", label: "Focused Design" },
           ].map((stat) => (
             <div key={stat.label} className="bg-black/80 px-6 py-8 text-center backdrop-blur">
               <div className="mb-2 flex justify-center">
