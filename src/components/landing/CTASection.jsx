@@ -25,52 +25,51 @@ export default function CTASection() {
           </div>
 
           <p className="mb-5 text-sm uppercase tracking-[0.3em] text-yellow-400">
-            Begin Your Transformation
+            Build Your Digital Presence
           </p>
 
           <h2 className="text-4xl font-semibold leading-tight md:text-6xl">
             Invest In The{" "}
             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
-              Future Version
-            </span>{" "}
-            Of Yourself
+              Future Of Your Business
+            </span>
           </h2>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-zinc-400">
-            Cavaro delivers premium learning experiences designed to help
-            ambitious individuals unlock modern skills, confidence, and
-            professional growth.
+            Cavaro helps businesses elevate their brand through premium
+            websites, modern IT solutions, and digital systems designed for
+            growth, professionalism, and trust.
           </p>
 
           <div className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row">
-           <SignedOut>
-            <SignUpButton mode="modal">
-             <button className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 font-semibold text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
-               Explore Premium Courses
-               <ArrowRight
-                className="ml-2 transition group-hover:translate-x-1"
-                size={18}
-              />
-            </button>
-          </SignUpButton>
-         </SignedOut>
+            <SignedOut>
+              <SignUpButton mode="modal">
+                <button className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 font-semibold text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
+                  View Website Packages
+                  <ArrowRight
+                    className="ml-2 transition group-hover:translate-x-1"
+                    size={18}
+                  />
+                </button>
+              </SignUpButton>
+            </SignedOut>
 
-         <SignedIn>
-          <a
-           href="/dashboard"
-           className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 font-semibold text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105"
-          >
-            Go To Dashboard
-             <ArrowRight
-              className="ml-2 transition group-hover:translate-x-1"
-              size={18}
-           />
-            </a>
+            <SignedIn>
+              <a
+                href="/dashboard"
+                className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 font-semibold text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105"
+              >
+                Client Dashboard
+                <ArrowRight
+                  className="ml-2 transition group-hover:translate-x-1"
+                  size={18}
+                />
+              </a>
             </SignedIn>
 
             <button className="rounded-full border border-white/15 px-8 py-4 font-semibold text-white transition hover:border-yellow-400/60 hover:bg-white/5">
-            Learn More
-           </button>
+              Our Services
+            </button>
           </div>
         </motion.div>
       </div>
