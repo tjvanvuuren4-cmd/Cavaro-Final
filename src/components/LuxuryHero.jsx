@@ -26,6 +26,13 @@ export default function LuxuryHero() {
             Premium Web Design & IT Solutions
           </div>
 
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-24">
+        <div className="max-w-3xl">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-2 text-sm text-yellow-300 backdrop-blur">
+            <Crown size={16} />
+            FEH Premium Education Division
+          </div>
+
           <h1 className="text-5xl font-semibold tracking-tight text-white md:text-7xl">
             Build a brand that looks premium, works smarter, and{" "}
             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
