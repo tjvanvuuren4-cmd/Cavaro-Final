@@ -3,16 +3,18 @@ import {
   SignedOut,
   SignUpButton,
 } from "@clerk/clerk-react";
-import { ShoppingCart, Star, Clock, Users, Crown } from "lucide-react";
+
+import {
+  ArrowRight,
+  Globe,
+  ShieldCheck,
+  Sparkles,
+  Crown,
+} from "lucide-react";
+
 import { motion } from "framer-motion";
-import { courses, USD_TO_ZAR } from "@/lib/courseData";
 
 export default function FeaturedCourse() {
-  const featured = courses.find((c) => c.featured);
-  if (!featured) return null;
-
-  const priceZAR = (featured.priceUSD * USD_TO_ZAR).toFixed(0);
-
   return (
     <section className="relative overflow-hidden bg-black px-6 py-28 text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.12),transparent_30%)]" />
@@ -37,8 +39,8 @@ export default function FeaturedCourse() {
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-400">
-            Premium websites and business systems designed to elevate your brand,
-            build trust, and attract more clients.
+            Premium websites and business systems designed to elevate your
+            brand, build trust, and attract more clients.
           </p>
         </motion.div>
 
@@ -53,10 +55,9 @@ export default function FeaturedCourse() {
 
           <div className="relative z-10 grid lg:grid-cols-2">
             <div className="relative min-h-[320px] overflow-hidden">
-
               <img
                 src="/media/cavaro-featured-course.png"
-                alt={featured.title}
+                alt="Premium Website Design"
                 className="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105"
               />
 
@@ -64,72 +65,67 @@ export default function FeaturedCourse() {
 
               <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-black/60 px-4 py-2 text-xs uppercase tracking-[0.2em] text-yellow-400 backdrop-blur">
                 <Crown className="h-4 w-4" />
-                Most Popular
+                Premium Service
               </div>
             </div>
 
             <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
               <p className="mb-4 text-xs uppercase tracking-[0.3em] text-yellow-400">
-                {featured.category}
+                Premium Web Design
               </p>
 
               <h3 className="mb-5 text-3xl font-semibold leading-tight md:text-5xl">
-                {featured.title}
+                Premium Business Website Experience
               </h3>
 
               <p className="mb-8 text-base leading-8 text-zinc-400">
-                {featured.description}
+                Luxury modern websites built to elevate your brand, improve
+                customer trust, and help your business grow online.
               </p>
 
               <div className="mb-10 flex flex-wrap gap-4 text-sm text-zinc-300">
                 <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                  <Clock className="h-4 w-4 text-yellow-400" />
-                  {featured.duration}
+                  <Globe className="h-4 w-4 text-yellow-400" />
+                  Mobile Responsive
                 </span>
 
                 <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                  <Users className="h-4 w-4 text-yellow-400" />
-                  {featured.students.toLocaleString()} students
+                  <Sparkles className="h-4 w-4 text-yellow-400" />
+                  Premium Design
                 </span>
 
                 <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                  <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  {featured.rating}
+                  <ShieldCheck className="h-4 w-4 text-yellow-400" />
+                  SEO Ready
                 </span>
               </div>
 
               <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <p className="text-4xl font-semibold text-yellow-400">
-                    R {Number(priceZAR).toLocaleString()}
-                  </p>
-                  <p className="mt-1 text-xs tracking-wider text-zinc-500">
-                    ≈ ${featured.priceUSD.toFixed(2)} USD
+                    Starting From R5,999
                   </p>
                 </div>
 
                 <div className="flex gap-3">
-                  <button className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-yellow-400/60 hover:bg-white/5">
-                    <ShoppingCart className="h-5 w-5" />
-                </button>
+                  <SignedOut>
+                    <SignUpButton mode="modal">
+                      <button className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
+                        Get Started
+                      </button>
+                    </SignUpButton>
+                  </SignedOut>
 
-                 <SignedOut>
-                  <SignUpButton mode="modal">
-                   <button className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
-                    Get Started
-                   </button>
-                  </SignUpButton>
-                 </SignedOut>
-
-                 <SignedIn>
-                  <a
-                    href="/dashboard"
-                    className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105"
-                 >
-                   Client Dashboard
-                </a>
-               </SignedIn>
-              </div>
+                  <SignedIn>
+                    <a
+                      href="/dashboard"
+                      className="inline-flex items-center rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105"
+                    >
+                      Client Dashboard
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </SignedIn>
+                </div>
               </div>
             </div>
           </div>
