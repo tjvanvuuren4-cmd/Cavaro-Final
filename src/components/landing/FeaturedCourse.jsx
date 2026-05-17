@@ -26,19 +26,19 @@ export default function FeaturedCourse() {
           className="mx-auto mb-16 max-w-3xl text-center"
         >
           <p className="mb-4 text-sm uppercase tracking-[0.3em] text-yellow-400">
-            Flagship Programme
+            Featured Service
           </p>
 
           <h2 className="text-4xl font-semibold md:text-6xl">
-            Featured Premium{" "}
+            Premium Digital{" "}
             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
-              Course
+              Experience
             </span>
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-400">
-            A curated premium learning pathway designed for ambitious
-            professionals ready to upgrade their future.
+            Premium websites and business systems designed to elevate your brand,
+            build trust, and attract more clients.
           </p>
         </motion.div>
 
@@ -116,7 +116,7 @@ export default function FeaturedCourse() {
                  <SignedOut>
                   <SignUpButton mode="modal">
                    <button className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
-                    Enroll Now
+                    Get Started
                    </button>
                   </SignUpButton>
                  </SignedOut>
@@ -126,7 +126,7 @@ export default function FeaturedCourse() {
                     href="/dashboard"
                     className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105"
                  >
-                   Go To Dashboard
+                   Client Dashboard
                 </a>
                </SignedIn>
               </div>
