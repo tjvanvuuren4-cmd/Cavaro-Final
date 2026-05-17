@@ -47,7 +47,7 @@ export default function Navbar({ setQuoteOpen }) {
             </div>
           </a>
 
-          <div className="hidden items-center gap-6 md:flex">
+          <div className="hidden items-center gap-8 md:flex">
             {links.map((link) => (
               <a
                 key={link.label}
