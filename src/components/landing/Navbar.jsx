@@ -47,7 +47,7 @@ export default function Navbar({ setQuoteOpen }) {
             </div>
           </a>
 
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-5 md:flex">
             {links.map((link) => (
               <a
                 key={link.label}
@@ -59,7 +59,7 @@ export default function Navbar({ setQuoteOpen }) {
             ))}
           </div>
 
-          <div className="hidden items-center gap-4 md:flex">
+          <div className="hidden items-center gap-3 md:flex">
             <button
               onClick={() => setQuoteOpen(true)}
               className="rounded-full border border-yellow-500/30 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
