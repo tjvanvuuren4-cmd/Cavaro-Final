@@ -1,114 +1,95 @@
-import { SignedIn, SignedOut, SignUpButton } from "@clerk/clerk-react";
-import { ShieldCheck, Bitcoin, Cloud } from "lucide-react";
+import React from "react";
+import { Rocket, TrendingUp, Gem, Crown, ShoppingCart, Cog } from "lucide-react";
 
-const courses = [
+const packages = [
   {
-    title: "Cybersecurity and Privacy",
-    description:
-      "This course has been designed for individuals seeking entry-level positions in IT support. Whether you're a recent graduate, a career changer, or someone looking to kick start your career in the tech industry, it will provide you with the foundational knowledge and practical skills needed to excel in this field.",
-    duration: "4 Weeks",
-    category: "Cybersecurity",
-    price: "R 3,400",
-    icon: ShieldCheck,
+    title: "Launch Essentials",
+    price: "R5,999",
+    description: "Perfect for getting your business online with a professional first impression.",
+    icon: Rocket,
+    features: ["5-page website", "Mobile responsive", "Contact form", "Basic SEO", "Google Maps", "Social links", "1 revision"],
   },
   {
-    title: "Certificate in Cyber Security",
-    description:
-      "Get on the fast track to a career in cybersecurity.In this certificate program, you'll learn in-demand skills, and get AI training from Google experts. Learn at your own pace, no degree or experience required.",
-    duration: "8 Weeks",
-    category: "Cybersecurity",
-    price: "R 3,900",
-    icon: ShieldCheck,
+    title: "Business Growth",
+    price: "R11,999",
+    description: "Built for businesses ready to attract more customers and convert better.",
+    icon: TrendingUp,
+    popular: true,
+    features: ["Up to 8 pages", "Advanced forms", "Speed optimization", "WhatsApp click-to-chat", "Social media integration", "1 month support", "2 revisions"],
   },
   {
-    title: "Google Data Analytics Certificate",
-    description:
-      "Get on the fast track to a career in Data Analytics.In this certificate program, you'll learn in-demand skills, and get AI training from Google experts. Learn at your own pace, no degree or experience required.",
-    duration: "12 Weeks",
-    category: "Data Analytics",
-    price: "R 4,700",
-    icon: ShieldCheck,
+    title: "Premium Business",
+    price: "R17,999",
+    description: "A premium online presence that builds trust and improves customer perception.",
+    icon: Gem,
+    features: ["Up to 12 pages", "Premium layout", "Analytics setup", "Blog/news section", "WhatsApp integration", "2 months support", "3 revisions"],
   },
   {
-    title: "Cybersecurity Fundamentals & Threat Defense",
-    description:
-      "Master modern cybersecurity principles including threat analysis, vulnerability assessment, incident response, and enterprise defense strategies.",
-    duration: "14 Weeks",
-    category: "Cybersecurity",
-    price: "R 6,800",
-    icon: ShieldCheck,
+    title: "Elite Brand Experience",
+    price: "R26,999",
+    description: "For brands that want a luxury digital experience with stronger visual impact.",
+    icon: Crown,
+    features: ["Up to 15 pages", "Custom premium design", "Advanced animations", "SEO + analytics", "Blog/news section", "3 months support", "Unlimited revisions"],
   },
   {
-    title: "Blockchain Development & Architecture",
-    description:
-      "Deep dive into blockchain ecosystems, decentralized applications, smart contracts, and distributed ledger technologies.",
-    duration: "18 Weeks",
-    category: "Blockchain",
-    price: "R 14,500",
-    icon: Bitcoin,
+    title: "E-Commerce Power",
+    price: "R34,999",
+    description: "Sell online with a powerful, secure, and modern e-commerce store.",
+    icon: ShoppingCart,
+    features: ["Full e-commerce website", "Up to 20 products", "Payment integration", "Inventory management", "Order management", "3 months support", "Mobile responsive"],
   },
   {
-    title: "Ethical Hacking & Penetration Testing",
-    description:
-      "Learn professional penetration testing methodologies, exploit analysis, social engineering, and advanced security auditing.",
-    duration: "20 Weeks",
-    category: "Cybersecurity",
-    price: "R 26,400",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Cloud Security & Infrastructure Protection",
-    description:
-      "Secure cloud environments including AWS, Azure, and GCP using encryption, identity management, and zero-trust architecture.",
-    duration: "20 Weeks",
-    category: "Cloud Security",
-    price: "R 37,400",
-    icon: Cloud,
-  },
-  {
-    title: "Full-Stack Web Development-Boot Camp",
-    description:
-      "Unlike shorter format boot Camps, this extended programme provides a broader foundation in web development and software engineering. It equips participants with the technical competencies and practical problem-solving skills required to respond to the evolving needs of the tech industry.",
-    duration: "6 Months",
-    category: "Cloud Security",
-    price: "R 79,500",
-    icon: Cloud,
+    title: "Custom Web Solution",
+    price: "R49,999+",
+    description: "Tailored scalable systems for complex business needs and advanced features.",
+    icon: Cog,
+    features: ["Custom website/web app", "Database setup", "User management", "API integrations", "Advanced analytics", "Priority support", "Custom timeline"],
   },
 ];
 
 export default function PremiumCourseCards() {
   return (
-    <section id="courses" className="relative bg-black px-6 py-28 text-white">
+    <section id="packages" className="relative bg-black px-6 py-28 text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.12),transparent_30%)]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mb-16 max-w-3xl">
           <p className="mb-4 text-sm uppercase tracking-[0.3em] text-yellow-400">
-            Curated Premium Programs
+            Website Packages
           </p>
 
           <h2 className="text-4xl font-semibold md:text-6xl">
-            Premium Courses Built For{" "}
+            Premium Packages Built To{" "}
             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
-              Modern Excellence
+              Elevate Your Business
             </span>
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-400">
-            Cavaro is a luxury education marketplace connecting ambitious
-            learners with premium professional growth opportunities.
+            Choose a professional web design package built to improve trust,
+            appearance, customer perception, and lead generation.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-          {courses.map((course) => {
-            const Icon = course.icon;
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {packages.map((pkg) => {
+            const Icon = pkg.icon;
 
             return (
               <div
-                key={course.title}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-yellow-500/40 min-h-[620px]"
+                key={pkg.title}
+                className={`group relative flex min-h-[620px] flex-col justify-between overflow-hidden rounded-3xl border p-8 backdrop-blur-xl transition duration-500 hover:-translate-y-2 ${
+                  pkg.popular
+                    ? "border-yellow-500/50 bg-yellow-500/[0.06]"
+                    : "border-white/10 bg-white/[0.03] hover:border-yellow-500/40"
+                }`}
               >
+                {pkg.popular && (
+                  <div className="absolute right-6 top-6 rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-black">
+                    Popular
+                  </div>
+                )}
+
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
 
                 <div className="relative z-10">
@@ -116,47 +97,30 @@ export default function PremiumCourseCards() {
                     <Icon className="h-7 w-7 text-yellow-400" />
                   </div>
 
-                  <h3 className="mb-4 text-2xl font-semibold">
-                    {course.title}
-                  </h3>
+                  <h3 className="mb-3 text-2xl font-semibold">{pkg.title}</h3>
 
-                  <p className="leading-7 text-zinc-400 flex-grow">
-                    {course.description}
+                  <p className="mb-6 leading-7 text-zinc-400">{pkg.description}</p>
+
+                  <p className="mb-6 text-4xl font-semibold text-yellow-400">
+                    {pkg.price}
                   </p>
 
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    <span className="rounded-full border border-yellow-500/20 bg-yellow-500/10 px-3 py-1 text-xs text-yellow-300">
-                      {course.duration}
-                    </span>
-
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300">
-                      {course.category}
-                    </span>
-                  </div>
-
-                  <p className="mt-6 text-2xl font-semibold text-yellow-400">
-                    {course.price}
-                  </p>
-
-                  <button className="mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400 transition hover:text-yellow-300">
-                  <SignedOut>
-                   <SignUpButton mode="modal">
-                    <button className="mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400 transition hover:text-yellow-300">
-                     Explore Course →
-                    </button>
-                   </SignUpButton>
-                  </SignedOut>
-
-                  <SignedIn>
-                    <a
-                      href="/dashboard"
-                      className="mt-8 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400 transition hover:text-yellow-300"
-                    >
-                      Go To Dashboard →
-                    </a>
-                   </SignedIn>
-                  </button>
+                  <ul className="space-y-3">
+                    {pkg.features.map((feature) => (
+                      <li key={feature} className="flex gap-3 text-sm text-zinc-300">
+                        <span className="mt-1 h-2 w-2 rounded-full bg-yellow-400" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
+
+                <a
+                  href="#footer"
+                  className="relative z-10 mt-8 inline-flex justify-center rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-black transition hover:scale-105"
+                >
+                  Enquire Now
+                </a>
               </div>
             );
           })}
