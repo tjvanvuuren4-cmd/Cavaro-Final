@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function QuoteModal({ open, setOpen }) {
   const [form, setForm] = useState({
@@ -51,6 +52,23 @@ export default function QuoteModal({ open, setOpen }) {
     setLoading(false);
 
     if (result.success) {
+
+      const { data, error } = await supabase.from("quote_requests").insert([
+  {
+    name: form.name,
+    business: form.business,
+    email: form.email,
+    phone: form.phone,
+    service: form.service,
+    budget: form.budget,
+    description: form.description,
+  },
+])
+.select();
+
+console.log("QUOTE DATA:", data);
+console.log("QUOTE ERROR:", error);
+
       alert("Thank you! Your quote request has been submitted.");
 
       setForm({
