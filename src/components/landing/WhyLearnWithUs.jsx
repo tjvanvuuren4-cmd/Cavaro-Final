@@ -5,21 +5,21 @@ import { motion } from "framer-motion";
 const features = [
   {
     icon: GraduationCap,
-    title: "Expert Instructors",
+    title: "Premium Website Design",
     description:
-      "Learn from experienced professionals and curated industry specialists across cybersecurity, blockchain, and emerging technologies.",
+      "Modern luxury websites designed to build trust, improve customer perception, and help your business stand out online.",
   },
   {
     icon: Wrench,
-    title: "Practical Skills",
+    title: "IT Support & Business Setup",
     description:
-      "Gain real-world knowledge through hands-on learning experiences designed for modern career advancement and professional growth.",
+      "Professional IT assistance, PC builds, troubleshooting, networking, and business technology solutions tailored for growth.",
   },
   {
     icon: Award,
-    title: "Premium Certifications",
+    title: "Brand Growth & Digital Presence",
     description:
-      "Build credibility with industry-recognized certificates and premium learning pathways designed to elevate your future.",
+      "We help businesses create a stronger digital identity through premium branding, online systems, and modern client experiences.",
   },
 ];
 
@@ -44,16 +44,16 @@ export default function WhyLearnWithUs() {
           </p>
 
           <h2 className="text-4xl font-semibold md:text-6xl">
-            A Premium Learning{" "}
+            Premium Digital{" "}
             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
-              Experience
+              Solutions
             </span>
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-400 max-w-2xl mx-auto">
-            Cavaro delivers curated premium education pathways designed for
-            ambitious professionals seeking modern growth and industry-ready
-            expertise.
+            Cavaro helps businesses elevate their online presence through premium
+            website design, IT support, branding, and modern business solutions
+            built for growth.
           </p>
         </motion.div>
 
