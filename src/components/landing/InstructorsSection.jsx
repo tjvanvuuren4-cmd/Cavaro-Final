@@ -140,7 +140,7 @@ export default function InstructorsSection() {
         </motion.div>
 
         <div className="mb-16 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-4">
-          [
+          {[
            { value: "3", label: "Featured Brands" },
             { value: "Premium", label: "Digital Presence" },
             { value: "Modern", label: "Business Solutions" },
