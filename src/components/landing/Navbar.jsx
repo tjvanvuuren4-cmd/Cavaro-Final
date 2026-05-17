@@ -12,13 +12,14 @@ import {
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const links = [
-    { label: "Courses", href: "#courses" },
-    { label: "About", href: "#why" },
-    { label: "Instructors", href: "#instructors" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact", href: "#footer" },
-  ];
+const links = [
+  { label: "Packages", href: "#packages" },
+  { label: "Services", href: "#why" },
+  { label: "Portfolio", href: "#instructors" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#footer" },
+];
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
@@ -77,7 +78,7 @@ export default function Navbar() {
                href="/dashboard"
               className="text-xs uppercase tracking-[0.2em] text-yellow-400 transition hover:text-yellow-300"
             >
-              Dashboard
+              Client Portal
             </a>
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
