@@ -1,11 +1,34 @@
 import React from "react";
 import { Star, Quote } from "lucide-react";
 import { motion } from "framer-motion";
-import { testimonials } from "@/lib/courseData";
+
+const testimonials = [
+  {
+    name: "Michael Jacobs",
+    role: "Business Owner",
+    text: "Cavaro completely transformed our online presence. The website feels premium, modern, and our customers trust the brand far more now.",
+    avatar: "MJ",
+  },
+  {
+    name: "Sarah Williams",
+    role: "Entrepreneur",
+    text: "Professional service from start to finish. The branding and website quality exceeded expectations and helped improve our client perception.",
+    avatar: "SW",
+  },
+  {
+    name: "Daniel Roberts",
+    role: "Startup Founder",
+    text: "Cavaro delivered a luxury digital experience that made our business stand out instantly. Highly recommended for modern businesses.",
+    avatar: "DR",
+  },
+];
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-black px-6 py-28 text-white">
+    <section
+      id="testimonials"
+      className="relative overflow-hidden bg-black px-6 py-28 text-white"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(212,175,55,0.12),transparent_30%)]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -17,19 +40,19 @@ export default function Testimonials() {
           className="mx-auto mb-16 max-w-3xl text-center"
         >
           <p className="mb-4 text-sm uppercase tracking-[0.3em] text-yellow-400">
-            Success Stories
+            Client Experiences
           </p>
 
           <h2 className="text-4xl font-semibold md:text-6xl">
-            Trusted By Ambitious{" "}
+            Trusted By Modern{" "}
             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
-              Learners
+              Businesses
             </span>
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-zinc-400">
-            Real experiences from people investing in their skills, confidence,
-            and future through premium learning pathways.
+            Premium digital experiences designed to improve trust,
+            professionalism, and business growth.
           </p>
         </motion.div>
 
@@ -50,7 +73,10 @@ export default function Testimonials() {
 
                 <div className="mb-6 flex gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <Star
+                      key={i}
+                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                    />
                   ))}
                 </div>
 
