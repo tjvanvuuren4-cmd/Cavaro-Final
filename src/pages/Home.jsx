@@ -1,5 +1,5 @@
 import LuxuryHero from "@/components/LuxuryHero";
-import React from "react";
+import React from "react"; 
 import Navbar from "@/components/landing/Navbar";
 import LuxuryStats from "@/components/LuxuryStats";
 import WhyLearnWithUs from "@/components/landing/WhyLearnWithUs";

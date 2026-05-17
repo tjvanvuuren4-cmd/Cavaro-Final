@@ -7,6 +7,7 @@ import CreateProfile from "@/components/CreateProfile";
 import React, { useState } from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import QuoteModal from "@/components/QuoteModal";
+
 import PageNotFound from "./lib/PageNotFound";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -27,7 +28,13 @@ function App() {
 
         <Router>
           <Routes>
-            <Route path="/" element={<Home setQuoteOpen={setQuoteOpen} />} />
+            <Route
+              path="/"
+              element={
+                <Home setQuoteOpen={setQuoteModalOpen} />
+              }
+            />
+
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/contact" element={<Contact />} />
@@ -38,13 +45,19 @@ function App() {
               path="/affiliate-terms-of-use"
               element={<AffiliateTermsOfUse />}
             />
+
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Router>
 
         <WhatsAppButton />
+
+        <QuoteModal
+          open={quoteModalOpen}
+          setOpen={setQuoteModalOpen}
+        />
+
         <Toaster />
-        <QuoteModal open={quoteOpen} setOpen={setQuoteOpen} />
       </QueryClientProvider>
     </CartProvider>
   );
