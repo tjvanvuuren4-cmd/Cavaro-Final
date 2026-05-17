@@ -3,10 +3,10 @@ import { Crown, Globe2, Star, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "20+", label: "Premium Programs", icon: Crown },
-  { value: "4.8★", label: "Learner Rating", icon: Star },
-  { value: "Global", label: "Learning Access", icon: Globe2 },
-  { value: "100%", label: "Career-Focused", icon: ShieldCheck },
+  { value: "6", label: "Website Packages", icon: Crown },
+  { value: "24/7", label: "IT Support Focus", icon: ShieldCheck },
+  { value: "Premium", label: "Brand Presence", icon: Star },
+  { value: "Growth", label: "Business Systems", icon: Globe2 },
 ];
 
 export default function LuxuryStats() {
