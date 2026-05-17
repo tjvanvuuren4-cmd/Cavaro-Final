@@ -23,7 +23,7 @@ export default function LuxuryHero() {
         <div className="max-w-3xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-2 text-sm text-yellow-300 backdrop-blur">
             <Crown size={16} />
-            Premium Web Design & IT Solutions FEH Premium Education Division
+            Premium Web Design & IT Solutions and FEH Premium Education Division
           </div>
 
           <h1 className="text-5xl font-semibold tracking-tight text-white md:text-7xl">
