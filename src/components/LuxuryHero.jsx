@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, Crown, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Crown, ShieldCheck, Sparkles, MonitorCog } from "lucide-react";
 
 export default function LuxuryHero() {
   return (
@@ -23,44 +23,44 @@ export default function LuxuryHero() {
         <div className="max-w-3xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-2 text-sm text-yellow-300 backdrop-blur">
             <Crown size={16} />
-            Premium Self-Investment Platform
+            Premium Web Design & IT Solutions
           </div>
 
           <h1 className="text-5xl font-semibold tracking-tight text-white md:text-7xl">
-            The best investment you can make is{" "}
+            Build a brand that looks premium, works smarter, and{" "}
             <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
-              in yourself.
+              attracts more clients.
             </span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-            Cavaro is built for ambitious individuals who want to upgrade their
-            mindset, skills, confidence, and future through premium learning
-            experiences.
+            Cavaro creates premium websites, business systems, IT support
+            solutions, and digital setups that help businesses look
+            professional, build trust, and grow with confidence.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
-              href="#courses"
+              href="#packages"
               className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-7 py-4 font-semibold text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105"
             >
-              Begin Your Transformation
+              View Website Packages
               <ArrowRight className="ml-2 transition group-hover:translate-x-1" size={18} />
             </a>
 
             <a
-              href="#about"
+              href="#services"
               className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-4 font-semibold text-white backdrop-blur transition hover:border-yellow-400/60 hover:bg-white/10"
             >
-              Discover Cavaro
+              Explore Services
             </a>
           </div>
 
           <div className="mt-12 grid max-w-2xl gap-4 sm:grid-cols-3">
             {[
-              [Sparkles, "Premium Growth"],
-              [ShieldCheck, "Elite Standards"],
-              [Crown, "Luxury Learning"],
+              [Sparkles, "Premium Websites"],
+              [ShieldCheck, "Trusted IT Support"],
+              [MonitorCog, "Business Setup"],
             ].map(([Icon, text]) => (
               <div
                 key={text}
