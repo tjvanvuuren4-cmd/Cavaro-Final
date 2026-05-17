@@ -102,49 +102,81 @@ export const courses = [
 
 export const instructors = [
   {
-    name: "Dr. Adrian Cole",
-    title: "Lead UI/UX & Cybersecurity Specialist",
-    image: "https://media.base44.com/images/public/6a057b43c92975536478e242/87500c784_generated_image.png",
-    experience: "18 Years",
-    credentials: ["CISSP", "CEH", "OSCP"],
-    bio: "Former Head of Security Operations at a FTSE 100 financial institution. Adrian has led incident response teams across 12 countries and holds a PhD in Information Security from Imperial College London.",
-    highlights: [
-      "Led security for 3 major bank mergers",
-      "Published researcher — 40+ peer-reviewed papers",
-      "Keynote speaker at Black Hat & DEF CON",
-      "Ex-GCHQ cybersecurity consultant",
+    name: "Fluent English Hub",
+    title: "Premium English Coaching Brand",
+    image: "/media/feh-brand.jpg",
+    experience: "FEH",
+    credentials: [
+      "Premium Branding",
+      "Lead Funnels",
+      "Modern Website",
     ],
-    courses: ["Cybersecurity Fundamentals & Threat Defense", "Ethical Hacking & Penetration Testing", "Network Security & Firewall Management"],
+    bio:
+      "A premium English coaching brand focused on helping professionals and students improve fluency, confidence, and communication skills.",
+    highlights: [
+      "Luxury educational branding",
+      "Modern responsive website",
+      "Social media marketing system",
+      "Lead generation focused",
+    ],
+    courses: [
+      "English Coaching",
+      "Business English",
+      "Confidence Training",
+      "Fluency Development",
+    ],
   },
+
   {
-    name: "Priya Naidoo",
-    title: "Dev OPS Engineering & Blockchain Expert",
-    image: "https://media.base44.com/images/public/6a057b43c92975536478e242/2023d7442_generated_image.png",
-    experience: "14 Years",
-    credentials: ["CFA", "CBP", "Ethereum Dev Cert"],
-    bio: "Co-founder of a blockchain infrastructure company acquired by a top-5 crypto exchange. Priya previously served as Chief Blockchain Architect at a global consulting firm and advises several DeFi protocols.",
-    highlights: [
-      "Co-founded a blockchain startup (acquired 2021)",
-      "Architected $2B+ in on-chain transaction infrastructure",
-      "Advisor to 6 live DeFi protocols",
-      "Regular contributor to the Ethereum Foundation",
+    name: "Miraculous Munchies",
+    title: "Bakery & Treats Brand",
+    image: "/media/miraculous-brand.jpg",
+    experience: "Bakery",
+    credentials: [
+      "Brand Identity",
+      "Product Marketing",
+      "Social Content",
     ],
-    courses: ["Blockchain Development & Architecture", "Smart Contracts & DeFi Development", "Crypto Trading & Blockchain Investment"],
+    bio:
+      "A visually engaging bakery and treats brand built with premium promotional content and strong social media presentation.",
+    highlights: [
+      "Luxury product visuals",
+      "Social media promotions",
+      "Modern branding identity",
+      "Business growth positioning",
+    ],
+    courses: [
+      "Bakery Branding",
+      "Product Advertising",
+      "Facebook Promotions",
+      "Business Identity",
+    ],
   },
+
   {
-    name: "Marcus Steyn",
-    title: "Senior Web & Cloud Development Engineer",
-    image: "https://media.base44.com/images/public/6a057b43c92975536478e242/519655160_generated_image.png",
-    experience: "16 Years",
-    credentials: ["AWS SAA", "GCP Pro", "CCSP"],
-    bio: "Former Principal Engineer at two Fortune 500 tech companies, Marcus has architected cloud-native systems serving hundreds of millions of users. He specialises in scalable, secure web infrastructure and zero-trust architecture.",
-    highlights: [
-      "Architected cloud infra for 200M+ active users",
-      "Ex-Principal Engineer at two Fortune 500 firms",
-      "AWS & GCP certified trainer",
-      "Open-source contributor — 12K+ GitHub stars",
+    name: "Cavaro Studio",
+    title: "Premium Digital Agency",
+    image: "/media/cavaro-brand.jpg",
+    experience: "Agency",
+    credentials: [
+      "Web Design",
+      "IT Support",
+      "Business Growth",
     ],
-    courses: ["Advanced Web Development Mastery Course", "Cloud Security & Infrastructure Protection"],
+    bio:
+      "A premium web design and IT solutions brand helping businesses improve trust, appearance, and digital presence.",
+    highlights: [
+      "Luxury website experiences",
+      "Modern IT solutions",
+      "Business growth systems",
+      "Premium client positioning",
+    ],
+    courses: [
+      "Premium Websites",
+      "IT Support",
+      "Business Systems",
+      "Brand Growth",
+    ],
   },
 ];
 
