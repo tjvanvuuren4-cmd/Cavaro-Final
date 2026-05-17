@@ -119,7 +119,7 @@ export const instructors = [
       "Social media marketing system",
       "Lead generation focused",
     ],
-    courses: [
+    Information: [
       "English Coaching",
       "Business English",
       "Confidence Training",
@@ -145,7 +145,7 @@ export const instructors = [
       "Modern branding identity",
       "Business growth positioning",
     ],
-    courses: [
+    Information: [
       "Bakery Branding",
       "Product Advertising",
       "Facebook Promotions",
@@ -171,7 +171,7 @@ export const instructors = [
       "Business growth systems",
       "Premium client positioning",
     ],
-    courses: [
+    Information: [
       "Premium Websites",
       "IT Support",
       "Business Systems",
