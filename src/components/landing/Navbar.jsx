@@ -9,17 +9,17 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 
-export default function Navbar() {
+export default function Navbar({ setQuoteOpen }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-const links = [
-  { label: "Packages", href: "#packages" },
-  { label: "Services", href: "#why" },
-  { label: "Portfolio", href: "#instructors" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#footer" },
-];
+  const links = [
+    { label: "Packages", href: "#packages" },
+    { label: "Services", href: "#why" },
+    { label: "Portfolio", href: "#instructors" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Contact", href: "#footer" },
+  ];
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
@@ -37,6 +37,7 @@ const links = [
               >
                 CAVARO
               </span>
+
               <span
                 className="text-[9px] font-light uppercase text-zinc-400"
                 style={{ letterSpacing: "0.35em" }}
@@ -59,36 +60,48 @@ const links = [
           </div>
 
           <div className="hidden items-center gap-4 md:flex">
+            <button
+              onClick={() => setQuoteOpen(true)}
+              className="rounded-full border border-yellow-500/30 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
+            >
+              Request Quote
+            </button>
+
             <SignedOut>
               <SignInButton mode="modal">
                 <button className="text-xs uppercase tracking-widest text-zinc-300 transition hover:text-yellow-400">
-                  Member Access
+                  Client Access
                 </button>
               </SignInButton>
 
               <SignUpButton mode="modal">
                 <button className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105">
-                  Join Cavaro
+                  Get Started
                 </button>
               </SignUpButton>
             </SignedOut>
 
             <SignedIn>
-             <a
-               href="/dashboard"
-              className="text-xs uppercase tracking-[0.2em] text-yellow-400 transition hover:text-yellow-300"
-            >
-              Client Portal
-            </a>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
+              <a
+                href="/dashboard"
+                className="text-xs uppercase tracking-[0.2em] text-yellow-400 transition hover:text-yellow-300"
+              >
+                Client Portal
+              </a>
+
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
           </div>
 
           <button
-            className="md:hidden text-yellow-400"
+            className="text-yellow-400 md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {mobileOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
@@ -114,6 +127,16 @@ const links = [
               ))}
 
               <div className="grid grid-cols-2 gap-3 border-t border-white/10 pt-4">
+                <button
+                  onClick={() => {
+                    setQuoteOpen(true);
+                    setMobileOpen(false);
+                  }}
+                  className="col-span-2 rounded-full border border-yellow-500/30 px-4 py-3 text-xs font-semibold uppercase tracking-widest text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
+                >
+                  Request Quote
+                </button>
+
                 <SignedOut>
                   <SignInButton mode="modal">
                     <button className="rounded-full border border-white/15 px-4 py-3 text-xs uppercase tracking-widest text-zinc-300">
@@ -131,8 +154,9 @@ const links = [
                 <SignedIn>
                   <div className="col-span-2 flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
                     <span className="text-xs uppercase tracking-[0.2em] text-yellow-400">
-                      Member Access
+                      Client Portal
                     </span>
+
                     <UserButton afterSignOutUrl="/" />
                   </div>
                 </SignedIn>

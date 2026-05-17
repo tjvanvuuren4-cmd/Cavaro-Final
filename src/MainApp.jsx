@@ -4,7 +4,9 @@ import { queryClientInstance } from "@/lib/query-client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { CartProvider } from "@/lib/CartContext";
 import CreateProfile from "@/components/CreateProfile";
+import React, { useState } from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import QuoteModal from "@/components/QuoteModal";
 import PageNotFound from "./lib/PageNotFound";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -16,6 +18,8 @@ import TermsOfService from "./pages/TermsOfService";
 import AffiliateTermsOfUse from "./pages/AffiliateTermsOfUse";
 
 function App() {
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+
   return (
     <CartProvider>
       <QueryClientProvider client={queryClientInstance}>
@@ -23,7 +27,7 @@ function App() {
 
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home setQuoteOpen={setQuoteOpen} />} />
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/contact" element={<Contact />} />
@@ -40,6 +44,7 @@ function App() {
 
         <WhatsAppButton />
         <Toaster />
+        <QuoteModal open={quoteOpen} setOpen={setQuoteOpen} />
       </QueryClientProvider>
     </CartProvider>
   );
