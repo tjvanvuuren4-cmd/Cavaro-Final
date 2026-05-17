@@ -100,7 +100,7 @@ export const courses = [
   },
 ];
 
-export const instructors = [
+export const instructors = [        
   {
     name: "Fluent English Hub",
     title: "Premium English Coaching Brand",

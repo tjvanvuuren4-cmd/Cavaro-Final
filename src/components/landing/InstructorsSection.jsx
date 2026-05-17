@@ -91,7 +91,7 @@ function InstructorCard({ instructor, index }) {
               className="overflow-hidden"
             >
               <ul className="mt-4 space-y-2">
-                {instructor.courses.map((c) => (
+                {instructor.Information.map((c) => (
                   <li
                     key={c}
                     className="border-l border-yellow-500/30 pl-3 text-sm text-zinc-400 transition hover:text-yellow-400"
