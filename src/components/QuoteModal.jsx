@@ -66,8 +66,8 @@ export default function QuoteModal({ open, setOpen }) {
 ])
 .select();
 
-console.log("QUOTE DATA:", data);
-console.log("QUOTE ERROR:", error);
+console.log(data);
+console.log(error);
 
       alert("Thank you! Your quote request has been submitted.");
 
