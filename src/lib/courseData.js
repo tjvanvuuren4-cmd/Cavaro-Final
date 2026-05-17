@@ -103,7 +103,7 @@ export const courses = [
 export const instructors = [
   {
     name: "Dr. Adrian Cole",
-    title: "Lead Cybersecurity Instructor",
+    title: "Lead UI/UX & Cybersecurity Specialist",
     image: "https://media.base44.com/images/public/6a057b43c92975536478e242/87500c784_generated_image.png",
     experience: "18 Years",
     credentials: ["CISSP", "CEH", "OSCP"],
@@ -118,7 +118,7 @@ export const instructors = [
   },
   {
     name: "Priya Naidoo",
-    title: "Blockchain & DeFi Lead",
+    title: "Dev OPS Engineering & Blockchain Expert",
     image: "https://media.base44.com/images/public/6a057b43c92975536478e242/2023d7442_generated_image.png",
     experience: "14 Years",
     credentials: ["CFA", "CBP", "Ethereum Dev Cert"],
@@ -133,7 +133,7 @@ export const instructors = [
   },
   {
     name: "Marcus Steyn",
-    title: "Senior Web & Cloud Security Instructor",
+    title: "Senior Web & Cloud Development Engineer",
     image: "https://media.base44.com/images/public/6a057b43c92975536478e242/519655160_generated_image.png",
     experience: "16 Years",
     credentials: ["AWS SAA", "GCP Pro", "CCSP"],
