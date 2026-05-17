@@ -73,7 +73,7 @@ function InstructorCard({ instructor, index }) {
         >
           <span className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-zinc-400 transition hover:text-yellow-400">
             <BookOpen className="h-4 w-4" />
-            Courses
+            Information
           </span>
           {expanded ? (
             <ChevronUp className="h-4 w-4 text-yellow-400" />

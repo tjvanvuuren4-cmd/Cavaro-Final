@@ -104,7 +104,7 @@ export const instructors = [
   {
     name: "Fluent English Hub",
     title: "Premium English Coaching Brand",
-    image: "/media/feh-brand.jpg",
+    image: "/media/feh-brand.png",
     experience: "FEH",
     credentials: [
       "Premium Branding",
@@ -130,7 +130,7 @@ export const instructors = [
   {
     name: "Miraculous Munchies",
     title: "Bakery & Treats Brand",
-    image: "/media/miraculous-brand.jpg",
+    image: "/media/miraculous-brand.png",
     experience: "Bakery",
     credentials: [
       "Brand Identity",
@@ -156,7 +156,7 @@ export const instructors = [
   {
     name: "Cavaro Studio",
     title: "Premium Digital Agency",
-    image: "/media/cavaro-brand.jpg",
+    image: "/media/cavaro-brand.png",
     experience: "Agency",
     credentials: [
       "Web Design",
