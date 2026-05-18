@@ -24,25 +24,30 @@ export default function Dashboard() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    if (!user?.primaryEmailAddress?.emailAddress) return;
+  const email =
+    user?.primaryEmailAddress?.emailAddress?.toLowerCase();
 
-    const fetchProjects = async () => {
-      const { data, error } = await supabase
-        .from("client_projects")
-        .select("*")
-        .eq(
-          "client_email",
-          user.primaryEmailAddress.emailAddress
-        )
-        .order("created_at", { ascending: false });
+  console.log("Dashboard email:", email);
 
-      if (!error) {
-        setProjects(data || []);
-      }
-    };
+  if (!email) return;
 
-    fetchProjects();
-  }, [user]);
+  const fetchProjects = async () => {
+    const { data, error } = await supabase
+      .from("client_projects")
+      .select("*")
+      .eq("client_email", email)
+      .order("created_at", { ascending: false });
+
+    console.log("Projects:", data);
+    console.log("Projects error:", error);
+
+    if (!error) {
+      setProjects(data || []);
+    }
+  };
+
+  fetchProjects();
+}, [user]);
 
   return (
     <>
