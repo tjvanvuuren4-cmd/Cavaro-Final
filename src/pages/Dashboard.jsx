@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PayFastButton from "@/components/PayFastButton";
 import {
   SignedIn,
   SignedOut,
@@ -206,8 +207,15 @@ export default function Dashboard() {
                           </p>
                         </div>
                       )}
+
+                      <div className="mt-6">
+                        <PayFastButton
+                          amount="2500"
+                          itemName={project.project_title}
+                        />
+                      </div>
                     </div>
-                  ))}
+                  )}
 
                   {projects.length === 0 && (
                     <div className="rounded-2xl border border-white/10 bg-black/40 p-8 text-center text-zinc-400">
