@@ -16,6 +16,7 @@ import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
+import InvoiceAdmin from "./pages/InvoiceAdmin";
 import AdminGuard from "@/components/AdminGuard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -35,6 +36,14 @@ function App() {
               path="/"
               element={
                 <Home setQuoteOpen={setQuoteModalOpen} />
+              }
+            />
+            <Route
+              path="/admin/invoices"
+              element={
+            <AdminGuard>
+            <InvoiceAdmin />
+           </AdminGuard>
               }
             />
 
