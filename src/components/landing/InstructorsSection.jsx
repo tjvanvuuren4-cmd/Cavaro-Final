@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, ChevronDown, ChevronUp, BookOpen, Crown } from "lucide-react";
+import {
+  CheckCircle2,
+  ChevronDown,
+  ChevronUp,
+  BookOpen,
+  Crown,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { instructors } from "@/lib/courseData";
+import { supabase } from "@/lib/supabase";
 
 function InstructorCard({ instructor, index }) {
   const [expanded, setExpanded] = useState(false);
@@ -109,6 +115,40 @@ function InstructorCard({ instructor, index }) {
 }
 
 export default function InstructorsSection() {
+  const [instructors, setInstructors] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const { data, error } = await supabase
+        .from("portfolio_projects")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (!error) {
+        const formatted = data.map((project) => ({
+          name: project.title,
+          title: project.category,
+          image: project.image_url || "/media/cavaro-logo.png",
+          experience: "Featured",
+          credentials: ["Premium", "Cavaro"],
+          bio: project.description,
+          highlights: [
+            "Premium business branding",
+            "Modern digital presence",
+            "Growth-focused design",
+          ],
+          Information: [
+            project.website_url || "No website link",
+          ],
+        }));
+
+        setInstructors(formatted);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   return (
     <section id="instructors" className="relative overflow-hidden bg-black px-6 py-28 text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.12),transparent_30%)]" />
