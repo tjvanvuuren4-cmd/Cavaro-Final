@@ -12,6 +12,7 @@ import Admin from "./pages/Admin";
 import PortfolioAdmin from "./pages/PortfolioAdmin";
 import PageNotFound from "./lib/PageNotFound";
 import Home from "./pages/Home";
+import Gallery from "./pages/Gallery";
 import GalleryAdmin from "./pages/GalleryAdmin";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
@@ -60,6 +61,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route
