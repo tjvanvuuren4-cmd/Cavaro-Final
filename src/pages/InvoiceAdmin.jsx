@@ -42,6 +42,7 @@ export default function InvoiceAdmin() {
         ...form,
         project_id: form.project_id ? Number(form.project_id) : null,
         amount: Number(form.amount),
+        due_date: form.due_date || null,
       },
     ]);
 
