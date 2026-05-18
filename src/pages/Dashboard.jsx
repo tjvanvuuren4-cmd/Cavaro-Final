@@ -23,6 +23,7 @@ import { supabase } from "@/lib/supabase";
 export default function Dashboard() {
   const { user } = useUser();
   const [projects, setProjects] = useState([]);
+  const [invoices, setInvoices] = useState([]);
 
   useEffect(() => {
     const email = user?.primaryEmailAddress?.emailAddress?.toLowerCase();
@@ -38,6 +39,18 @@ export default function Dashboard() {
 
       if (!error) {
         setProjects(data || []);
+      }
+    };
+
+    const fetchInvoices = async () => {
+      const { data, error } = await supabase
+        .from("client_invoices")
+        .select("*")
+        .eq("client_email", email)
+        .order("created_at", { ascending: false });
+
+      if (!error) {
+        setInvoices(data || []);
       }
     };
 
@@ -198,7 +211,7 @@ export default function Dashboard() {
                           itemName={project.project_title}
                         />
                       </div>
-                      
+
                       <FileUpload
                         projectId={project.id}
                         clientEmail={user?.primaryEmailAddress?.emailAddress}
@@ -212,6 +225,74 @@ export default function Dashboard() {
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-yellow-500/20 bg-yellow-500/10">
                   <MonitorCog className="h-7 w-7 text-yellow-400" />
                 </div>
+
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl lg:col-span-2">
+                 <div className="mb-8">
+                  <p className="text-sm uppercase tracking-[0.25em] text-yellow-400">
+                     Billing
+                  </p>
+
+                  <h2 className="mt-2 text-3xl font-semibold">
+                    My Invoices
+                  </h2>
+                 </div>
+
+                 <div className="space-y-5">
+                   {invoices.length === 0 && (
+                     <div className="rounded-2xl border border-white/10 bg-black/40 p-8 text-center text-zinc-400">
+                       No invoices available yet.
+                </div>
+           )}
+
+                  {invoices.map((invoice) => (
+                <div
+                  key={invoice.id}
+                  className="rounded-2xl border border-white/10 bg-black/40 p-5"
+          >
+                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-yellow-400">
+                 {invoice.invoice_number || "Invoice"}
+               </p>
+
+               <h3 className="mt-2 text-xl font-semibold text-white">
+                 {invoice.title}
+               </h3>
+
+                <p className="mt-2 text-sm text-zinc-400">
+                  Due: {invoice.due_date || "No due date"}
+                </p>
+              </div>
+
+             <div className="text-left md:text-right">
+               <p className="text-3xl font-semibold text-yellow-400">
+                R{invoice.amount}
+             </p>
+
+             <p className="mt-2 text-xs uppercase tracking-[0.2em] text-zinc-400">
+                  {invoice.status}
+              </p>
+            </div>
+          </div>
+
+             {invoice.notes && (
+            <p className="mt-5 text-sm leading-7 text-zinc-300">
+              {invoice.notes}
+            </p>
+           )}
+
+            {invoice.status !== "Paid" && (
+               <div className="mt-6">
+                <PayFastButton
+                 amount={invoice.amount}
+                 itemName={invoice.title}
+                />
+              </div>
+              )}
+            </div>
+         ))}
+                </div>
+              </div>
 
                 <p className="text-sm uppercase tracking-[0.25em] text-yellow-400">
                   Support & Services
