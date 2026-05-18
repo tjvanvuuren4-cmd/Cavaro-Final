@@ -24,7 +24,7 @@ export default function Navbar({ setQuoteOpen }) {
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
-      <div className="mx-auto max-w-[1200px] rounded-full border border-yellow-500/20 bg-black/45 px-5 shadow-2xl shadow-black/40 backdrop-blur-2xl">
+      <div className="mx-auto max-w-[1400px] rounded-full border border-yellow-500/20 bg-black/45 px-5 shadow-2xl shadow-black/40 backdrop-blur-2xl">
         <div className="flex h-16 items-center justify-between">
           <a href="#" className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full border border-yellow-500/30 bg-yellow-500/10">
