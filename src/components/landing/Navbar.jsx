@@ -16,6 +16,7 @@ export default function Navbar({ setQuoteOpen }) {
     { label: "Packages", href: "#packages" },
     { label: "Services", href: "#why" },
     { label: "Portfolio", href: "#instructors" },
+    { label: "Gallery", href: "/gallery" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#footer" },
