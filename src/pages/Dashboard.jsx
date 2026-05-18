@@ -21,34 +21,27 @@ import { supabase } from "@/lib/supabase";
 
 export default function Dashboard() {
   const { user } = useUser();
-
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-  const email =
-    user?.primaryEmailAddress?.emailAddress?.toLowerCase();
+    const email = user?.primaryEmailAddress?.emailAddress?.toLowerCase();
 
-  console.log("Dashboard email:", email);
+    if (!email) return;
 
-  if (!email) return;
+    const fetchProjects = async () => {
+      const { data, error } = await supabase
+        .from("client_projects")
+        .select("*")
+        .eq("client_email", email)
+        .order("created_at", { ascending: false });
 
-  const fetchProjects = async () => {
-    const { data, error } = await supabase
-      .from("client_projects")
-      .select("*")
-      .eq("client_email", email)
-      .order("created_at", { ascending: false });
+      if (!error) {
+        setProjects(data || []);
+      }
+    };
 
-    console.log("Projects:", data);
-    console.log("Projects error:", error);
-
-    if (!error) {
-      setProjects(data || []);
-    }
-  };
-
-  fetchProjects();
-}, [user]);
+    fetchProjects();
+  }, [user]);
 
   return (
     <>
@@ -75,8 +68,8 @@ export default function Dashboard() {
                 </h1>
 
                 <p className="mt-5 max-w-2xl text-zinc-400">
-                  Manage your active services, monitor project progress,
-                  and access your premium Cavaro business solutions.
+                  Manage your active services, monitor project progress, and
+                  access your premium Cavaro business solutions.
                 </p>
               </div>
 
@@ -85,26 +78,10 @@ export default function Dashboard() {
 
             <div className="mb-10 grid gap-6 md:grid-cols-4">
               {[
-                {
-                  title: "Active Projects",
-                  value: projects.length,
-                  icon: Briefcase,
-                },
-                {
-                  title: "Client Access",
-                  value: "Premium",
-                  icon: Crown,
-                },
-                {
-                  title: "Support Status",
-                  value: "Active",
-                  icon: ShieldCheck,
-                },
-                {
-                  title: "Portal Status",
-                  value: "Online",
-                  icon: TrendingUp,
-                },
+                { title: "Active Projects", value: projects.length, icon: Briefcase },
+                { title: "Client Access", value: "Premium", icon: Crown },
+                { title: "Support Status", value: "Active", icon: ShieldCheck },
+                { title: "Portal Status", value: "Online", icon: TrendingUp },
               ].map((item) => {
                 const Icon = item.icon;
 
@@ -130,7 +107,7 @@ export default function Dashboard() {
             </div>
 
             <div className="grid gap-8 lg:grid-cols-3">
-              <div className="lg:col-span-2 rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl">
+              <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl lg:col-span-2">
                 <div className="mb-8 flex items-center justify-between">
                   <div>
                     <p className="text-sm uppercase tracking-[0.25em] text-yellow-400">
@@ -146,6 +123,12 @@ export default function Dashboard() {
                 </div>
 
                 <div className="space-y-5">
+                  {projects.length === 0 && (
+                    <div className="rounded-2xl border border-white/10 bg-black/40 p-8 text-center text-zinc-400">
+                      No active projects assigned yet.
+                    </div>
+                  )}
+
                   {projects.map((project) => (
                     <div
                       key={project.id}
@@ -215,13 +198,7 @@ export default function Dashboard() {
                         />
                       </div>
                     </div>
-                  )}
-
-                  {projects.length === 0 && (
-                    <div className="rounded-2xl border border-white/10 bg-black/40 p-8 text-center text-zinc-400">
-                      No active projects assigned yet.
-                    </div>
-                  )}
+                  ))}
                 </div>
               </div>
 
@@ -239,8 +216,8 @@ export default function Dashboard() {
                 </h2>
 
                 <p className="mt-4 text-zinc-400">
-                  Access premium web design, IT support, maintenance,
-                  and business growth solutions through your Cavaro portal.
+                  Access premium web design, IT support, maintenance, and
+                  business growth solutions through your Cavaro portal.
                 </p>
 
                 <button className="mt-8 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-yellow-400/60 hover:bg-white/5">
