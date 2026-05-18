@@ -7,7 +7,7 @@ import CreateProfile from "@/components/CreateProfile";
 import React, { useState } from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import QuoteModal from "@/components/QuoteModal";
-
+import Admin from "./pages/Admin";
 import PageNotFound from "./lib/PageNotFound";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -39,6 +39,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route
