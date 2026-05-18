@@ -16,6 +16,7 @@ import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
+import AdminGuard from "@/components/AdminGuard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import AffiliateTermsOfUse from "./pages/AffiliateTermsOfUse";
@@ -41,15 +42,38 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/admin/projects" element={<ProjectAdmin />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/admin/portfolio" element={<PortfolioAdmin />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route
               path="/affiliate-terms-of-use"
               element={<AffiliateTermsOfUse />}
             />
+            <Route
+              path="/admin"
+              element={
+                <AdminGuard>
+                 <Admin />
+                </AdminGuard>
+             }
+           />
+
+            <Route
+             path="/admin/portfolio"
+             element={
+              <AdminGuard>
+                <PortfolioAdmin />
+              </AdminGuard>
+           }
+           />
+
+            <Route
+              path="/admin/projects"
+              element={
+               <AdminGuard>
+                 <ProjectAdmin />
+               </AdminGuard>
+              }
+           />
 
             <Route path="*" element={<PageNotFound />} />
           </Routes>
