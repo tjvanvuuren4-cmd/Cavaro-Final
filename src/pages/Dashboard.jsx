@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   SignedIn,
   SignedOut,
@@ -16,21 +16,33 @@ import {
   MonitorCog,
 } from "lucide-react";
 
-const activeServices = [
-  {
-    title: "Premium Business Website",
-    progress: 70,
-    status: "In Development",
-  },
-  {
-    title: "IT Support Setup",
-    progress: 35,
-    status: "Active Support",
-  },
-];
+import { supabase } from "@/lib/supabase";
 
 export default function Dashboard() {
   const { user } = useUser();
+
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    if (!user?.primaryEmailAddress?.emailAddress) return;
+
+    const fetchProjects = async () => {
+      const { data, error } = await supabase
+        .from("client_projects")
+        .select("*")
+        .eq(
+          "client_email",
+          user.primaryEmailAddress.emailAddress
+        )
+        .order("created_at", { ascending: false });
+
+      if (!error) {
+        setProjects(data || []);
+      }
+    };
+
+    fetchProjects();
+  }, [user]);
 
   return (
     <>
@@ -67,10 +79,26 @@ export default function Dashboard() {
 
             <div className="mb-10 grid gap-6 md:grid-cols-4">
               {[
-                { title: "Active Services", value: "2", icon: Briefcase },
-                { title: "Project Progress", value: "70%", icon: TrendingUp },
-                { title: "Support Status", value: "Active", icon: ShieldCheck },
-                { title: "Client Access", value: "Premium", icon: Crown },
+                {
+                  title: "Active Projects",
+                  value: projects.length,
+                  icon: Briefcase,
+                },
+                {
+                  title: "Client Access",
+                  value: "Premium",
+                  icon: Crown,
+                },
+                {
+                  title: "Support Status",
+                  value: "Active",
+                  icon: ShieldCheck,
+                },
+                {
+                  title: "Portal Status",
+                  value: "Online",
+                  icon: TrendingUp,
+                },
               ].map((item) => {
                 const Icon = item.icon;
 
@@ -112,35 +140,75 @@ export default function Dashboard() {
                 </div>
 
                 <div className="space-y-5">
-                  {activeServices.map((service) => (
+                  {projects.map((project) => (
                     <div
-                      key={service.title}
+                      key={project.id}
                       className="rounded-2xl border border-white/10 bg-black/40 p-5"
                     >
                       <div className="mb-4 flex items-center justify-between gap-4">
                         <div>
                           <h3 className="font-semibold text-white">
-                            {service.title}
+                            {project.project_title}
                           </h3>
 
                           <p className="text-sm text-zinc-400">
-                            {service.status}
+                            {project.status}
                           </p>
                         </div>
 
                         <span className="text-sm font-semibold text-yellow-400">
-                          {service.progress}%
+                          {project.progress}%
                         </span>
                       </div>
 
                       <div className="h-2 overflow-hidden rounded-full bg-white/10">
                         <div
                           className="h-full rounded-full bg-gradient-to-r from-yellow-400 to-amber-700"
-                          style={{ width: `${service.progress}%` }}
+                          style={{ width: `${project.progress}%` }}
                         />
                       </div>
+
+                      <div className="mt-5 grid gap-4 md:grid-cols-2">
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+                            Service Type
+                          </p>
+
+                          <p className="mt-2 text-zinc-300">
+                            {project.service_type}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+                            Next Step
+                          </p>
+
+                          <p className="mt-2 text-zinc-300">
+                            {project.next_step || "Pending update"}
+                          </p>
+                        </div>
+                      </div>
+
+                      {project.notes && (
+                        <div className="mt-5 rounded-2xl border border-yellow-500/20 bg-yellow-500/5 p-4">
+                          <p className="text-xs uppercase tracking-[0.2em] text-yellow-400">
+                            Notes
+                          </p>
+
+                          <p className="mt-2 text-sm leading-7 text-zinc-300">
+                            {project.notes}
+                          </p>
+                        </div>
+                      )}
                     </div>
                   ))}
+
+                  {projects.length === 0 && (
+                    <div className="rounded-2xl border border-white/10 bg-black/40 p-8 text-center text-zinc-400">
+                      No active projects assigned yet.
+                    </div>
+                  )}
                 </div>
               </div>
 
