@@ -44,7 +44,7 @@ export default function Dashboard() {
 
     const fetchInvoices = async () => {
       const { data, error } = await supabase
-        .from("client_invoices")
+        .from("invoices")
         .select("*")
         .eq("client_email", email)
         .order("created_at", { ascending: false });
@@ -55,6 +55,7 @@ export default function Dashboard() {
     };
 
     fetchProjects();
+    fetchInvoices();
   }, [user]);
 
   return (
