@@ -8,10 +8,8 @@ export default function PayFastButton({
   const merchantKey = import.meta.env.VITE_PAYFAST_MERCHANT_KEY;
 
   return (
-    <form
-      action="https://www.payfast.co.za/eng/process"
-      method="post"
-    >
+    <form action="https://www.payfast.co.za/eng/process" method="post">
+        
       <input type="hidden" name="merchant_id" value={merchantId} />
       <input type="hidden" name="merchant_key" value={merchantKey} />
 

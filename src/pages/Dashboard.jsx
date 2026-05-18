@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PayFastButton from "@/components/PayFastButton";
+import FileUpload from "@/components/FileUpload";
 import {
   SignedIn,
   SignedOut,
@@ -197,6 +198,11 @@ export default function Dashboard() {
                           itemName={project.project_title}
                         />
                       </div>
+                      
+                      <FileUpload
+                        projectId={project.id}
+                        clientEmail={user?.primaryEmailAddress?.emailAddress}
+                       />
                     </div>
                   ))}
                 </div>
