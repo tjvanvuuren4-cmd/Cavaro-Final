@@ -7,6 +7,7 @@ import CreateProfile from "@/components/CreateProfile";
 import React, { useState } from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import QuoteModal from "@/components/QuoteModal";
+import ProjectAdmin from "./pages/ProjectAdmin";
 import Admin from "./pages/Admin";
 import PortfolioAdmin from "./pages/PortfolioAdmin";
 import PageNotFound from "./lib/PageNotFound";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/admin/projects" element={<ProjectAdmin />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/portfolio" element={<PortfolioAdmin />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
