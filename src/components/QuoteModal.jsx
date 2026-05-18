@@ -14,6 +14,7 @@ export default function QuoteModal({ open, setOpen }) {
   });
 
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   if (!open) return null;
 
@@ -49,27 +50,28 @@ export default function QuoteModal({ open, setOpen }) {
     });
 
     const result = await response.json();
-    setLoading(false);
 
     if (result.success) {
+      const { data, error } = await supabase
+        .from("quote_requests")
+        .insert([
+          {
+            name: form.name,
+            business: form.business,
+            email: form.email,
+            phone: form.phone,
+            service: form.service,
+            budget: form.budget,
+            description: form.description,
+          },
+        ])
+        .select();
 
-      const { data, error } = await supabase.from("quote_requests").insert([
-  {
-    name: form.name,
-    business: form.business,
-    email: form.email,
-    phone: form.phone,
-    service: form.service,
-    budget: form.budget,
-    description: form.description,
-  },
-])
-.select();
+      console.log("Supabase quote data:", data);
+      console.log("Supabase quote error:", error);
 
-console.log(data);
-console.log(error);
-
-      alert("Thank you! Your quote request has been submitted.");
+      setSuccess(true);
+      setLoading(false);
 
       setForm({
         name: "",
@@ -81,8 +83,12 @@ console.log(error);
         description: "",
       });
 
-      setOpen(false);
+      setTimeout(() => {
+        setSuccess(false);
+        setOpen(false);
+      }, 2500);
     } else {
+      setLoading(false);
       alert("Something went wrong. Please try again.");
     }
   };
@@ -111,6 +117,18 @@ console.log(error);
         <p className="mt-5 text-zinc-400">
           Tell us about your business and project requirements.
         </p>
+
+        {success && (
+          <div className="mt-8 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-5 text-left">
+            <p className="font-semibold text-yellow-400">
+              Quote request received.
+            </p>
+            <p className="mt-2 text-sm leading-6 text-zinc-300">
+              Thank you for contacting Cavaro Studio. We’ve received your
+              request and will contact you shortly.
+            </p>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="mt-10 grid gap-5 md:grid-cols-2">
           <input
