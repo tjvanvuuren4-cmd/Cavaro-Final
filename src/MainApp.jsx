@@ -12,6 +12,7 @@ import Admin from "./pages/Admin";
 import PortfolioAdmin from "./pages/PortfolioAdmin";
 import PageNotFound from "./lib/PageNotFound";
 import Home from "./pages/Home";
+import GalleryAdmin from "./pages/GalleryAdmin";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
@@ -46,6 +47,14 @@ function App() {
            </AdminGuard>
               }
             />
+            <Route
+               path="/admin/gallery"
+               element={
+           <AdminGuard>
+           <GalleryAdmin />
+          </AdminGuard>
+          }
+          />
 
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
