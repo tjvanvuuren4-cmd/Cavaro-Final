@@ -10,16 +10,19 @@ export default function PremiumCourseCards() {
   }, []);
 
   const fetchProducts = async () => {
-    const { data, error } = await supabase
-      .from("products")
-      .select("*")
-      .eq("is_active", true)
-      .order("created_at", { ascending: false });
+  const { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("is_active", true)
+    .order("created_at", { ascending: false });
 
-    if (!error) {
-      setPackages(data || []);
-    }
-  };
+  console.log("PRODUCTS DATA:", data);
+  console.log("PRODUCTS ERROR:", error);
+
+  if (!error) {
+    setPackages(data || []);
+  }
+};
 
   return (
     <section id="packages" className="relative bg-black px-6 py-28 text-white">
