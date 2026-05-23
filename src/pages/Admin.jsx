@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { Mail, Phone, Briefcase } from "lucide-react";
 
+import GalleryAdmin from "./GalleryAdmin";
+import InvoiceAdmin from "./InvoiceAdmin";
+import PortfolioAdmin from "./PortfolioAdmin";
+import ProductAdmin from "./ProductAdmin";
+
 export default function Admin() {
   const [leads, setLeads] = useState([]);
+  const [activeTab, setActiveTab] = useState("quotes");
   const updateLeadStatus = async (id, status) => {
   const { error } = await supabase
     .from("quote_requests")
@@ -33,16 +39,39 @@ export default function Admin() {
   }, []);
 
   return (
-    <section className="min-h-screen bg-black px-6 py-28 text-white">
-      <div className="mx-auto max-w-7xl">
-        <p className="mb-3 text-sm uppercase tracking-[0.3em] text-yellow-400">
-          Cavaro Admin
-        </p>
+  <section className="min-h-screen bg-black px-6 py-28 text-white">
+    <div className="mx-auto max-w-7xl">
+      <p className="mb-3 text-sm uppercase tracking-[0.3em] text-yellow-400">
+        Cavaro Admin
+      </p>
 
-        <h1 className="mb-10 text-4xl font-semibold md:text-6xl">
-          Quote Requests
-        </h1>
+      <h1 className="mb-8 text-4xl font-semibold md:text-6xl">
+        Master Admin
+      </h1>
 
+      <div className="mb-10 flex flex-wrap gap-3">
+        {[
+          ["quotes", "Quote Requests"],
+          ["gallery", "Gallery"],
+          ["invoices", "Invoices"],
+          ["portfolio", "Portfolio"],
+          ["products", "Products"],
+        ].map(([key, label]) => (
+          <button
+            key={key}
+            onClick={() => setActiveTab(key)}
+            className={`rounded-full border px-5 py-2 text-xs uppercase tracking-[0.2em] ${
+              activeTab === key
+                ? "border-yellow-400 bg-yellow-400 text-black"
+                : "border-white/10 bg-white/[0.03] text-zinc-300"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {activeTab === "quotes" && (
         <div className="grid gap-6">
           {leads.map((lead) => (
             <div
@@ -61,13 +90,13 @@ export default function Admin() {
                   value={lead.status || "New"}
                   onChange={(e) => updateLeadStatus(lead.id, e.target.value)}
                   className="rounded-full border border-yellow-500/30 bg-black px-4 py-2 text-xs uppercase tracking-[0.2em] text-yellow-400 outline-none"
-              >
-                 <option>New</option>
-                 <option>Contacted</option>
-                 <option>In Progress</option>
-                 <option>Quoted</option>
-                 <option>Closed</option>
-                 <option>Lost</option>
+                >
+                  <option>New</option>
+                  <option>Contacted</option>
+                  <option>In Progress</option>
+                  <option>Quoted</option>
+                  <option>Closed</option>
+                  <option>Lost</option>
                 </select>
               </div>
 
@@ -104,7 +133,13 @@ export default function Admin() {
             </div>
           )}
         </div>
-      </div>
-    </section>
-  );
+      )}
+
+      {activeTab === "gallery" && <GalleryAdmin />}
+      {activeTab === "invoices" && <InvoiceAdmin />}
+      {activeTab === "portfolio" && <PortfolioAdmin />}
+      {activeTab === "products" && <ProductAdmin />}
+    </div>
+  </section>
+);
 }
