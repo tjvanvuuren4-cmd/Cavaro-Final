@@ -26,27 +26,28 @@ export default function Navbar({ setQuoteOpen }) {
     <nav className="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
       <div className="mx-auto max-w-[1400px] rounded-full border border-yellow-500/20 bg-black/45 px-5 shadow-2xl shadow-black/40 backdrop-blur-2xl">
         <div className="flex h-16 items-center justify-between">
-          <a href="#" className="flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full border border-yellow-500/30 bg-yellow-500/10">
-              <Crown className="h-8 w-8 text-yellow-400" />
-            </div>
+          <a href="/" className="flex items-center gap-4">
+  <div className="flex items-center justify-center">
+    <img
+      src="/cavaro-favicon.png"
+      alt="Cavaro Logo"
+      className="h-12 w-12 object-contain"
+    />
+  </div>
 
-            <div className="flex flex-col leading-none">
-              <span
-                className="font-serif text-2xl font-bold tracking-widest text-yellow-400"
-                style={{ letterSpacing: "0.18em" }}
-              >
-                CAVARO
-              </span>
+  <div className="leading-none">
+  <p
+    className="text-2xl font-semibold tracking-[0.18em] text-yellow-400"
+    style={{ fontFamily: "Cinzel, serif" }}
+  >
+    CAVARO
+  </p>
 
-              <span
-                className="text-[9px] font-light uppercase text-zinc-400"
-                style={{ letterSpacing: "0.35em" }}
-              >
-                Elevate · Invest · Become
-              </span>
-            </div>
-          </a>
+  <p className="mt-2 text-[10px] uppercase tracking-[0.45em] text-zinc-500">
+    Elevate · Invest · Become
+  </p>
+  </div>
+</a>
 
           <div className="hidden items-center gap-8 md:flex">
             {links.map((link) => (

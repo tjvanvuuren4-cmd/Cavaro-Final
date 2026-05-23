@@ -1,23 +1,33 @@
 import React from "react";
-import { ArrowRight, Crown, ShieldCheck, Sparkles, MonitorCog } from "lucide-react";
+import {
+  ArrowRight,
+  Crown,
+  ShieldCheck,
+  Sparkles,
+  MonitorCog,
+} from "lucide-react";
 
 export default function LuxuryHero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-black text-white">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/media/cavaro-hero-poster.jpg"
-        className="absolute inset-0 h-full w-full object-cover opacity-40"
-      >
-        <source src="/media/cavaro-hero.mp4" type="video/mp4" />
-      </video>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.22),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(212,175,55,0.12),transparent_38%)]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/95 to-black/80" />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/30" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.25),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(212,175,55,0.12),transparent_35%)]" />
+      {/* 3D LOGO HERO VISUAL */}
+<div className="pointer-events-none absolute right-[-40px] top-0 hidden h-full w-1/2 items-center justify-center lg:flex">
+  <div className="relative flex items-center justify-center">
+
+    <div className="absolute h-[720px] w-[720px] rounded-full bg-yellow-500/0 blur-[80px]" />
+    <div className="absolute h-[460px] w-[460px] rounded-full bg-amber-400/0 blur-[40px]" />
+    <div className="absolute bottom-[80px] h-[90px] w-[420px] rounded-full bg-yellow-500/2 blur-[55px]" />
+
+    <img
+      src="/media/cavaro-3d-logo.png"
+      alt="Cavaro 3D Logo"
+      className="relative z-10 w-[640px] animate-cavaro-float drop-shadow-[0_0_130px_rgba(234,179,8,0.55)]"
+    />
+  </div>
+</div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-24">
         <div className="max-w-3xl">
@@ -45,7 +55,10 @@ export default function LuxuryHero() {
               className="group inline-flex items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-7 py-4 font-semibold text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105"
             >
               View Website Packages
-              <ArrowRight className="ml-2 transition group-hover:translate-x-1" size={18} />
+              <ArrowRight
+                className="ml-2 transition group-hover:translate-x-1"
+                size={18}
+              />
             </a>
 
             <a
@@ -73,6 +86,21 @@ export default function LuxuryHero() {
           </div>
         </div>
       </div>
+
+      <style>{`
+  @keyframes cavaroFloat {
+    0%, 100% {
+      transform: translateY(0px) rotate(-1deg) scale(1);
+    }
+    50% {
+      transform: translateY(-18px) rotate(1.5deg) scale(1.025);
+    }
+  }
+
+  .animate-cavaro-float {
+    animation: cavaroFloat 6s ease-in-out infinite;
+  }
+`}</style>
     </section>
   );
 }
