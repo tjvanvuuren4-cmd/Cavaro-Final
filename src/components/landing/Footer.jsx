@@ -41,9 +41,12 @@ export default function Footer() {
   </div>
 
   <div>
-    <div className="text-2xl font-semibold tracking-[0.22em] text-yellow-400">
-      CAVARO
-    </div>
+    <p
+  className="text-2xl font-semibold tracking-[0.18em] text-[#D4AF37]"
+  style={{ fontFamily: "Cinzel, serif" }}
+>
+  CAVARO
+</p>
 
     <div className="mt-1 text-[9px] uppercase tracking-[0.35em] text-zinc-500">
       Elevate · Invest · Become
