@@ -31,17 +31,25 @@ export default function Footer() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="mb-6 flex items-center gap-3">
-              <Crown className="h-6 w-6 text-yellow-400" />
-              <div>
-                <div className="text-2xl font-bold tracking-[0.18em] text-yellow-400">
-                  CAVARO
-                </div>
-                <div className="mt-1 text-[9px] uppercase tracking-[0.35em] text-zinc-500">
-                  Elevate · Invest · Become
-                </div>
-              </div>
-            </div>
+            <div className="mb-6 flex items-center gap-4">
+  <div className="flex items-center justify-center">
+    <img
+      src="/cavaro-favicon.png"
+      alt="Cavaro Logo"
+      className="h-10 w-10 object-contain"
+    />
+  </div>
+
+  <div>
+    <div className="text-2xl font-bold tracking-[0.18em] text-yellow-400">
+      CAVARO
+    </div>
+
+    <div className="mt-1 text-[9px] uppercase tracking-[0.35em] text-zinc-500">
+      Digital · Innovation · Excellence
+    </div>
+  </div>
+</div>
 
             <p className="text-sm leading-7 text-zinc-400">
               Premium web design, IT support, PC builds, and business digital
