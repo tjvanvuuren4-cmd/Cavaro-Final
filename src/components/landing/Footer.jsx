@@ -41,7 +41,7 @@ export default function Footer() {
   </div>
 
   <div>
-    <div className="text-2xl font-medium tracking-[0.24em] text-yellow-400">
+    <div className="text-2xl font-semibold tracking-[0.22em] text-yellow-400">
       CAVARO
     </div>
 
