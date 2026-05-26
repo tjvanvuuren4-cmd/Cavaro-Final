@@ -33,7 +33,7 @@ export default function LuxuryHero() {
         <div className="max-w-3xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-2 text-sm text-yellow-300 backdrop-blur">
             <Crown size={16} />
-            Premium Web Design and IT Solutions
+            Premium Web Design and Branding
           </div>
 
           <h1 className="text-5xl font-semibold tracking-tight text-white md:text-7xl">
@@ -44,8 +44,7 @@ export default function LuxuryHero() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-            Cavaro creates premium websites, business systems, IT support
-            solutions, and digital setups that help businesses look
+            Cavaro creates premium websites, business systems and digital setups that help businesses look
             professional, build trust, and grow with confidence.
           </p>
 
