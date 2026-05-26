@@ -1,5 +1,5 @@
 import React from "react";
-import { Phone, Mail, Crown } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 
 const quickLinks = [
   { label: "Packages", href: "#packages" },
@@ -41,12 +41,12 @@ export default function Footer() {
   </div>
 
   <div>
-    <div className="text-2xl font-bold tracking-[0.18em] text-yellow-400">
+    <div className="text-2xl font-medium tracking-[0.24em] text-yellow-400">
       CAVARO
     </div>
 
     <div className="mt-1 text-[9px] uppercase tracking-[0.35em] text-zinc-500">
-      Digital · Innovation · Excellence
+      Elevate · Invest · Become
     </div>
   </div>
 </div>
