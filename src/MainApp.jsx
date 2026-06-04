@@ -23,6 +23,7 @@ import AdminGuard from "@/components/AdminGuard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import AffiliateTermsOfUse from "./pages/AffiliateTermsOfUse";
+import Auto from "./pages/Auto";
 
 function App() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
@@ -62,6 +63,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/auto" element={<Auto />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route

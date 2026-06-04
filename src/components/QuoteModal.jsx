@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
+
 export default function QuoteModal({ open, setOpen }) {
   const [form, setForm] = useState({
     name: "",

@@ -15,6 +15,7 @@ export default function Navbar({ setQuoteOpen }) {
   const links = [
     { label: "Packages", href: "#packages" },
     { label: "Services", href: "#why" },
+    { label: "Cavaro Auto", href: "/auto" },
     { label: "Portfolio", href: "#instructors" },
     { label: "Gallery", href: "/gallery" },
     { label: "Testimonials", href: "#testimonials" },
