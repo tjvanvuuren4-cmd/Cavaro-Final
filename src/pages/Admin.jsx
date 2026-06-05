@@ -25,6 +25,18 @@ export default function Admin() {
     }
   };
 
+  const autoStats = {
+  total: autoRequests.length,
+  new: autoRequests.filter((item) => item.status === "new").length,
+  sourcing: autoRequests.filter((item) => item.status === "sourcing").length,
+  quoted: autoRequests.filter((item) => item.status === "quoted").length,
+  awaitingPayment: autoRequests.filter(
+    (item) => item.status === "awaiting_payment"
+  ).length,
+  ordered: autoRequests.filter((item) => item.status === "ordered").length,
+  delivered: autoRequests.filter((item) => item.status === "delivered").length,
+};
+
   const updateAutoStatus = async (id, status) => {
     const { error } = await supabase
       .from("auto_requests")
@@ -161,6 +173,25 @@ export default function Admin() {
 
         {activeTab === "auto" && (
           <div className="grid gap-6">
+            <div className="grid gap-4 md:grid-cols-5">
+  {[
+    ["Total", autoStats.total],
+    ["New", autoStats.new],
+    ["Sourcing", autoStats.sourcing],
+    ["Quoted", autoStats.quoted],
+    ["Delivered", autoStats.delivered],
+  ].map(([label, value]) => (
+    <div
+      key={label}
+      className="rounded-3xl border border-yellow-500/20 bg-white/[0.03] p-6 text-center"
+    >
+      <p className="text-3xl font-bold text-yellow-400">{value}</p>
+      <p className="mt-2 text-xs uppercase tracking-[0.25em] text-zinc-400">
+        {label}
+      </p>
+    </div>
+  ))}
+</div>
             {autoRequests.map((request) => (
               <div
                 key={request.id}
