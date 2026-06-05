@@ -83,20 +83,24 @@ const handleSubmit = async (e) => {
     const vinDiscUrl = await uploadFile(vinDisc, "vin-discs");
     const existingQuoteUrl = await uploadFile(existingQuote, "existing-quotes");
 
-    await supabase.from("auto_requests").insert([
-      {
-        name: form.name,
-        whatsapp: form.whatsapp,
-        make: form.make,
-        model: form.model,
-        year: form.year,
-        engine: form.engine,
-        part_needed: form.part,
-        part_photo_url: partPhotoUrl,
-        vin_disc_url: vinDiscUrl,
-        quote_url: existingQuoteUrl,
-      },
-    ]);
+    const { error: insertError } = await supabase.from("auto_requests").insert([
+  {
+    name: form.name,
+    whatsapp: form.whatsapp,
+    make: form.make,
+    model: form.model,
+    year: form.year,
+    engine: form.engine,
+    part_needed: form.part,
+    part_photo_url: partPhotoUrl,
+    vin_disc_url: vinDiscUrl,
+    quote_url: existingQuoteUrl,
+  },
+]);
+
+if (insertError) {
+  throw insertError;
+}
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
