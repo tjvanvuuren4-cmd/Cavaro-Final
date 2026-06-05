@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export default function Auto() {
   const [form, setForm] = useState({
@@ -13,6 +14,10 @@ export default function Auto() {
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const [partPhoto, setPartPhoto] = useState(null);
+  const [vinDisc, setVinDisc] = useState(null);
+  const [existingQuote, setExistingQuote] = useState(null);
 
   const brands = [
     "Toyota",
@@ -48,9 +53,50 @@ export default function Auto() {
     setSuccess(false);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  const uploadFile = async (file, folder) => {
+  if (!file) return "";
+
+  const fileExt = file.name.split(".").pop();
+  const fileName = `${folder}/${Date.now()}-${Math.random()
+    .toString(36)
+    .substring(2)}.${fileExt}`;
+
+  const { error } = await supabase.storage
+    .from("auto-requests")
+    .upload(fileName, file);
+
+  if (error) throw error;
+
+  const { data } = supabase.storage
+    .from("auto-requests")
+    .getPublicUrl(fileName);
+
+  return data.publicUrl;
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+
+  try {
+    const partPhotoUrl = await uploadFile(partPhoto, "part-photos");
+    const vinDiscUrl = await uploadFile(vinDisc, "vin-discs");
+    const existingQuoteUrl = await uploadFile(existingQuote, "existing-quotes");
+
+    await supabase.from("auto_requests").insert([
+      {
+        name: form.name,
+        whatsapp: form.whatsapp,
+        make: form.make,
+        model: form.model,
+        year: form.year,
+        engine: form.engine,
+        part_needed: form.part,
+        part_photo_url: partPhotoUrl,
+        vin_disc_url: vinDiscUrl,
+        quote_url: existingQuoteUrl,
+      },
+    ]);
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -60,7 +106,7 @@ export default function Auto() {
       },
       body: JSON.stringify({
         access_key: "c6e10925-16d4-486f-a5e5-3a2951cb8528",
-        subject: "New Cavaro Auto Part Quote Request",
+        subject: "New Cavaro Auto Request",
         from_name: "Cavaro Auto Website",
         name: form.name,
         whatsapp: form.whatsapp,
@@ -68,33 +114,45 @@ export default function Auto() {
         vehicle_model: form.model,
         year: form.year,
         engine: form.engine,
-        part_needed: form.part,
+        request_details: form.part,
+        part_photo_url: partPhotoUrl || "No part photo uploaded",
+        vin_disc_url: vinDiscUrl || "No VIN disc uploaded",
+        existing_quote_url: existingQuoteUrl || "No quote uploaded",
       }),
     });
 
     const result = await response.json();
 
-    if (result.success) {
-      setSuccess(true);
-      setLoading(false);
-
-      setForm({
-        name: "",
-        whatsapp: "",
-        make: "",
-        model: "",
-        year: "",
-        engine: "",
-        part: "",
-      });
-      setTimeout(() => {
-      setSuccess(false);
-      }, 5000);
-      } else {
-      setLoading(false);
-      alert("Something went wrong. Please try again.");
+    if (!result.success) {
+      throw new Error("Email failed to send");
     }
-  };
+
+    setSuccess(true);
+
+    setForm({
+      name: "",
+      whatsapp: "",
+      make: "",
+      model: "",
+      year: "",
+      engine: "",
+      part: "",
+    });
+
+    setPartPhoto(null);
+    setVinDisc(null);
+    setExistingQuote(null);
+
+    setTimeout(() => {
+      setSuccess(false);
+    }, 5000);
+  } catch (error) {
+    console.error("Auto request error:", error);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -464,7 +522,47 @@ export default function Auto() {
               placeholder="Engine"
               className="rounded-xl border border-zinc-700 bg-zinc-900 p-4 text-white outline-none focus:border-yellow-400"
             />
+{/* FILE UPLOADS */}
+<div className="md:col-span-2 grid gap-5 md:grid-cols-3">
+  <label className="block rounded-2xl border border-yellow-500/20 bg-zinc-900/80 p-5">
+    <span className="mb-3 block text-sm font-semibold text-yellow-400">
+      Upload Part Photo
+    </span>
 
+    <input
+      type="file"
+      accept="image/*"
+      onChange={(e) => setPartPhoto(e.target.files[0])}
+      className="w-full text-sm text-zinc-300 file:mr-4 file:rounded-full file:border-0 file:bg-yellow-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-black"
+    />
+  </label>
+
+  <label className="block rounded-2xl border border-yellow-500/20 bg-zinc-900/80 p-5">
+    <span className="mb-3 block text-sm font-semibold text-yellow-400">
+      Upload VIN Disc
+    </span>
+
+    <input
+      type="file"
+      accept="image/*,.pdf"
+      onChange={(e) => setVinDisc(e.target.files[0])}
+      className="w-full text-sm text-zinc-300 file:mr-4 file:rounded-full file:border-0 file:bg-yellow-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-black"
+    />
+  </label>
+
+  <label className="block rounded-2xl border border-yellow-500/20 bg-zinc-900/80 p-5">
+    <span className="mb-3 block text-sm font-semibold text-yellow-400">
+      Upload Existing Quote
+    </span>
+
+    <input
+      type="file"
+      accept="image/*,.pdf"
+      onChange={(e) => setExistingQuote(e.target.files[0])}
+      className="w-full text-sm text-zinc-300 file:mr-4 file:rounded-full file:border-0 file:bg-yellow-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-black"
+    />
+  </label>
+</div>
             <textarea
               name="part"
               value={form.part}
