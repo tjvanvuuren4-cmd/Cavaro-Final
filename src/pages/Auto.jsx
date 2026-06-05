@@ -169,10 +169,10 @@ const handleSubmit = async (e) => {
 
     <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-transparent to-black" />
 
-    <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-yellow-500/15 blur-[250px]" />
+    <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-yellow-500/4 blur-[220px]" />
 
     {/* Gold Glow */}
-    <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-yellow-500/10 blur-[120px]" />
+    <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-yellow-500/2 blur-[140px]" />
 
     {/* Page Content */}
     <div className="relative z-10">
@@ -181,14 +181,14 @@ const handleSubmit = async (e) => {
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-24">
   <div className="grid items-center gap-16 md:grid-cols-2">
     <div className="relative flex justify-center">
-      <div className="absolute h-[450px] w-[450px] rounded-full bg-yellow-500/0 blur-[10px]" />
+       <div className="absolute h-[520px] w-[520px] rounded-full bg-yellow-500/8 blur-[120px]" />
 
-      <img
-        src="/media/cavaro-auto-logo.png"
-        alt="Cavaro Auto"
-        className="relative z-10 w-[450px] drop-shadow-[0_0_45px_rgba(234,179,8,0.25)] md:w-[470px]"
-      />
-    </div>
+  <img
+    src="/media/cavaro-auto-logo.png"
+    alt="Cavaro Auto"
+    className="relative z-10 w-[600px] drop-shadow-[0_0_22px_rgba(234,179,8,0.14)] md:w-[1000px]"
+  />
+</div>
 
     <div className="text-center md:text-left">
       <p className="mb-4 text-xs font-semibold uppercase tracking-[0.45em] text-yellow-400">
