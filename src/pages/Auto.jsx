@@ -151,7 +151,8 @@ if (insertError) {
       setSuccess(false);
     }, 5000);
   } catch (error) {
-    console.error("Auto request error:", error);
+    console.error("Auto request error full:", JSON.stringify(error, null, 2));
+    console.error("Auto request error raw:", error);
     alert("Something went wrong. Please try again.");
   } finally {
     setLoading(false);
