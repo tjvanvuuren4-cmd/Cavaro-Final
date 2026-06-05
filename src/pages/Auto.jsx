@@ -88,116 +88,323 @@ export default function Auto() {
         part: "",
       });
       setTimeout(() => {
-  setSuccess(false);
-}, 4000);
-    } else {
+      setSuccess(false);
+      }, 5000);
+      } else {
       setLoading(false);
       alert("Something went wrong. Please try again.");
     }
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+
+    {/* Carbon Fibre Pattern */}
+    <div className="absolute inset-0 bg-black" />
+
+    <div className="absolute inset-0 opacity-15" style={{
+    backgroundImage: "url('/media/carbon-fibre.webp')",
+    backgroundSize: "250px",
+    backgroundRepeat: "repeat",
+    }}
+    />
+
+    <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-transparent to-black" />
+
+    <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-yellow-500/15 blur-[250px]" />
+
+    {/* Gold Glow */}
+    <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-yellow-500/10 blur-[120px]" />
+
+    {/* Page Content */}
+    <div className="relative z-10">
+    
       {/* HERO */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid items-center gap-12 md:grid-cols-2">
-          <div className="flex justify-center">
-            <img
-              src="/media/cavaro-auto-logo.png"
-              alt="Cavaro Auto"
-              className="w-[320px] md:w-[450px]"
-            />
-          </div>
+      <section className="mx-auto max-w-7xl px-6 pt-32 pb-24">
+  <div className="grid items-center gap-16 md:grid-cols-2">
+    <div className="relative flex justify-center">
+      <div className="absolute h-[450px] w-[450px] rounded-full bg-yellow-500/0 blur-[10px]" />
 
-          <div className="text-center md:text-left">
-            <h1 className="text-4xl font-bold text-yellow-400 md:text-6xl">
-              Premium Parts.
-              <br />
-              Trusted Sourcing.
-            </h1>
+      <img
+        src="/media/cavaro-auto-logo.png"
+        alt="Cavaro Auto"
+        className="relative z-10 w-[450px] drop-shadow-[0_0_45px_rgba(234,179,8,0.25)] md:w-[470px]"
+      />
+    </div>
 
-            <p className="mt-6 text-lg text-zinc-400">
-              Need a hard-to-find part? We source quality OEM and aftermarket
-              parts through our trusted supplier network.
-            </p>
+    <div className="text-center md:text-left">
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.45em] text-yellow-400">
+        Premium Automotive Sourcing
+      </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
-              <a
-                href="#request-quote"
-                className="rounded-xl bg-yellow-500 px-8 py-4 text-center font-medium text-black transition hover:bg-yellow-400"
-              >
-                Request A Part
-              </a>
+      <h1 className="text-4xl font-bold leading-tight text-white md:text-7xl">
+  Parts.
+  <br />
+  Vehicles.
+  <br />
+  Performance.
+  <br />
+  <span className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-transparent">
+    Delivered Nationwide.
+  </span>
+</h1>
 
-              <a
-                href="https://wa.me/27717926489"
-                className="rounded-xl border border-yellow-500 px-8 py-4 text-center font-medium text-yellow-400 transition hover:bg-yellow-500 hover:text-black"
-              >
-                WhatsApp Us
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+<p className="mt-4 text-sm uppercase tracking-[0.2em] text-yellow-400/80">
+  Trusted Automotive Sourcing Solutions
+</p>
 
+      <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-400">
+        Cavaro Auto helps customers source quality parts, accessories,
+        performance products and vehicles through a trusted supplier network.
+      </p>
+
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
+        <a
+          href="#request-quote"
+          className="rounded-full bg-gradient-to-r from-yellow-400 to-amber-700 px-8 py-4 text-center font-bold text-black shadow-lg shadow-yellow-900/30 transition hover:scale-105"
+        >
+          Get A Fast Quote
+        </a>
+
+        <a
+          href="https://wa.me/27717926489"
+          className="rounded-full border border-yellow-500/40 bg-white/5 px-8 py-4 text-center font-medium text-yellow-400 backdrop-blur transition hover:bg-yellow-500 hover:text-black"
+        >
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<div className="mx-auto my-8 h-px max-w-7xl bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent" />
+<section className="mx-auto max-w-7xl px-6">
+    
+  <div className="grid gap-4 rounded-[2rem] border border-yellow-500/20 bg-white/[0.03] p-6 backdrop-blur-xl md:grid-cols-4">
+    {[
+      "🛡 Trusted Suppliers",
+      "⚙ OEM & Aftermarket",
+      "🚗 Parts • Vehicles • Performance",
+      "📦 Nationwide Delivery",
+    ].map((item) => (
+      <div key={item} className="text-center">
+        <p className="text-sm uppercase tracking-[0.25em] text-zinc-400">
+          {item}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+{/* STATS SECTION */}
+<section className="mx-auto max-w-7xl px-6 pb-20 pt-8">
+  <div className="grid gap-6 md:grid-cols-4">
+    {[
+      {
+        icon: "🔧",
+        value: "1000+",
+        label: "Parts Sourced",
+      },
+      {
+        icon: "⚙️",
+        value: "OEM",
+        label: "Aftermarket Network",
+      },
+      {
+        icon: "🚚",
+        value: "Nationwide",
+        label: "Delivery",
+      },
+      {
+        icon: "🚗",
+        value: "Vehicle",
+        label: "Sourcing Available",
+      },
+    ].map((stat) => (
+      <div
+        key={stat.label}
+        className="group rounded-3xl border border-yellow-500/20 bg-gradient-to-b from-zinc-900/95 to-black p-8 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400 hover:shadow-[0_0_40px_rgba(250,204,21,0.15)]"
+      >
+        <div className="mb-4 text-3xl">{stat.icon}</div>
+
+        <h3 className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-amber-700 bg-clip-text text-4xl font-bold text-transparent">
+          {stat.value}
+        </h3>
+
+        <div className="mx-auto mt-4 h-px w-12 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
+
+        <p className="mt-4 text-xs uppercase tracking-[0.35em] text-zinc-400">
+          {stat.label}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
       {/* HOW IT WORKS */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-yellow-400">
-            HOW IT WORKS
-          </h2>
+<section className="mx-auto max-w-7xl px-6 py-20">
+  <div className="mb-16 text-center">
+    <h2 className="mb-4 text-4xl font-bold text-yellow-400">
+      HOW IT WORKS
+    </h2>
 
-          <p className="mx-auto max-w-2xl text-zinc-400">
-            Finding the right part shouldn&apos;t be difficult. Our sourcing
-            process is designed to get you the right part quickly and reliably.
-          </p>
+    <div className="mx-auto mb-6 h-px w-32 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
+
+    <p className="mx-auto max-w-2xl text-zinc-400">
+      A simple and reliable process designed to help you source quality
+      automotive solutions quickly and efficiently.
+    </p>
+  </div>
+
+  <div className="mb-24 grid gap-6 md:grid-cols-4">
+    {[
+      {
+        icon: "🚗",
+        title: "Send Vehicle Details",
+      },
+      {
+        icon: "📸",
+        title: "Upload Part Photo",
+      },
+      {
+        icon: "🔎",
+        title: "We Source The Best Option",
+      },
+      {
+        icon: "📦",
+        title: "Quote & Delivery",
+      },
+    ].map((step, index) => (
+      <div
+        key={index}
+        className="flex min-h-[190px] flex-col items-center justify-center rounded-3xl border border-yellow-500/20 bg-gradient-to-b from-zinc-900 to-zinc-950 p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400 hover:shadow-xl hover:shadow-yellow-500/10"
+      >
+        <div className="mb-4 text-5xl">{step.icon}</div>
+
+        <div className="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
+          Step {index + 1}
         </div>
 
-        <div className="mb-24 grid gap-6 md:grid-cols-4">
-          {steps.map((step, index) => (
-            <div
-              key={step}
-              className="rounded-3xl border border-yellow-500/20 bg-zinc-900 p-8 text-center transition hover:border-yellow-400/60"
-            >
-              <div className="mb-4 text-4xl font-bold text-yellow-400">
-                {index + 1}
-              </div>
-
-              <h3 className="text-xl font-semibold text-white">{step}</h3>
-            </div>
-          ))}
-        </div>
+        <h3 className="text-xl font-semibold text-white">
+          {step.title}
+        </h3>
+      </div>
+    ))}
+  </div>
 
         {/* TRUST SECTION */}
-        <div className="mb-24 rounded-3xl border border-yellow-500/20 bg-gradient-to-b from-zinc-900 to-black p-10">
-          <h2 className="mb-10 text-center text-3xl font-bold text-yellow-400">
-            Why Choose Cavaro Auto?
-          </h2>
 
-          <div className="grid gap-6 text-center md:grid-cols-4">
-            {trustItems.map((item) => (
-              <div key={item} className="p-6">
-                <div className="mb-3 text-3xl text-yellow-400">✓</div>
-                <p className="text-white">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+<div className="mb-24 rounded-[2rem] border border-yellow-500/20 bg-gradient-to-b from-zinc-900/90 to-black p-12 backdrop-blur-xl">
+
+  <h2 className="mb-4 text-center text-4xl font-bold text-yellow-400">
+    Why Choose Cavaro Auto?
+  </h2>
+
+  <div className="mx-auto mb-8 h-px w-32 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
+
+  <p className="mx-auto mb-12 max-w-3xl text-center text-zinc-400">
+    We connect customers with trusted suppliers nationwide, helping you source
+    quality automotive products quickly, professionally and reliably.
+  </p>
+
+  <div className="grid gap-6 md:grid-cols-4">
+
+{[
+  {
+    icon: "🛡️",
+    title: "OEM Parts",
+    desc: "Quality original equipment components from trusted suppliers.",
+  },
+  {
+    icon: "⚙️",
+    title: "Aftermarket Parts",
+    desc: "Reliable alternatives offering excellent value and performance.",
+  },
+  {
+    icon: "🚚",
+    title: "Nationwide Sourcing",
+    desc: "Access to suppliers and inventory across South Africa.",
+  },
+  {
+    icon: "🤝",
+    title: "Trusted Network",
+    desc: "Built on relationships with reputable automotive suppliers.",
+  },
+].map((item) => (
+  <div
+    key={item.title}
+    className="rounded-3xl border border-yellow-500/10 bg-white/[0.03] p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400 hover:shadow-xl hover:shadow-yellow-500/10"
+  >
+    <div className="mb-4 text-5xl">
+      {item.icon}
+    </div>
+
+    <h3 className="mb-3 text-xl font-semibold text-white">
+      {item.title}
+    </h3>
+
+    <p className="text-sm leading-6 text-zinc-400">
+      {item.desc}
+    </p>
+  </div>
+))}
+
+  </div>
+
+</div>
+
 
         {/* REQUEST FORM */}
-        <div id="request-quote" className="mx-auto max-w-4xl">
-          <h2 className="mb-4 text-center text-4xl font-bold text-yellow-400">
-            Request A Part Quote
-          </h2>
 
-          <p className="mb-10 text-center text-zinc-400">
-            Need a hard-to-find part? We source quality OEM and aftermarket
-            parts through our trusted supplier network.
-          </p>
+<div id="request-quote" className="mx-auto max-w-5xl">
+
+  <div className="text-center mb-12">
+    <h2 className="mb-4 text-4xl font-bold text-yellow-400">
+      Request Automotive Sourcing
+    </h2>
+<div className="mx-auto mb-6 h-px w-32 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
+
+<p className="mx-auto max-w-3xl text-zinc-400">
+  Premium automotive sourcing made simple.
+  From parts and accessories to complete vehicles.
+  Cavaro Auto connects you with trusted automotive solutions nationwide.
+</p>
+  </div>
+
+{/* Upload Cards */}
+
+  <div className="mb-12 grid gap-6 md:grid-cols-3">
+<div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/80 p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400">
+  <div className="mb-4 text-5xl">📷</div>
+  <h3 className="text-xl font-semibold text-white">
+    Upload Part Photo
+  </h3>
+  <p className="mt-3 text-sm text-zinc-400">
+    Send a photo and we'll help identify the correct part.
+  </p>
+</div>
+
+<div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/80 p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400">
+  <div className="mb-4 text-5xl">🚗</div>
+  <h3 className="text-xl font-semibold text-white">
+    Upload VIN Disc
+  </h3>
+  <p className="mt-3 text-sm text-zinc-400">
+    VIN information helps us source accurate vehicle-specific parts.
+  </p>
+</div>
+
+<div className="rounded-3xl border border-yellow-500/20 bg-zinc-900/80 p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400">
+  <div className="mb-4 text-5xl">📄</div>
+  <h3 className="text-xl font-semibold text-white">
+    Upload Existing Quote
+  </h3>
+  <p className="mt-3 text-sm text-zinc-400">
+    Compare supplier pricing and sourcing options.
+  </p>
+</div>
+  </div>
 
           {success && (
             <div className="mb-6 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-5 text-center text-yellow-400">
-              Part quote request received. We&apos;ll contact you shortly.
+              Request received. We&apos;ll contact you shortly.
             </div>
           )}
 
@@ -273,38 +480,66 @@ export default function Auto() {
               disabled={loading}
               className="rounded-xl bg-gradient-to-r from-yellow-400 to-amber-600 py-4 font-bold text-black transition hover:scale-[1.01] disabled:opacity-60 md:col-span-2"
             >
-              {loading ? "Submitting..." : "REQUEST PART QUOTE"}
+              {loading ? "Submitting..." : "SUBMIT REQUEST"}
             </button>
           </form>
         </div>
       </section>
 
       {/* POPULAR BRANDS */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-yellow-400">
-            Popular Vehicle Brands
-          </h2>
+<section className="mx-auto max-w-7xl px-6 py-24">
 
-          <p className="text-zinc-400">
-            We source OEM and aftermarket parts for a wide range of vehicle
-            manufacturers.
-          </p>
+  <div className="mb-16 text-center">
+    <h2 className="mb-4 text-4xl font-bold text-yellow-400">
+      Popular Vehicle Brands
+    </h2>
+
+    <div className="mx-auto mb-6 h-px w-32 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
+
+    <p className="mx-auto max-w-3xl text-zinc-400">
+      We source OEM parts, aftermarket components, accessories,
+      performance upgrades and vehicles for leading manufacturers
+      across South Africa.
+    </p>
+  </div>
+
+  <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+
+    {[
+      { icon: "🚘", name: "Toyota" },
+      { icon: "🚗", name: "Volkswagen" },
+      { icon: "🛻", name: "Ford" },
+      { icon: "🏁", name: "BMW" },
+      { icon: "⭐", name: "Mercedes-Benz" },
+      { icon: "🚙", name: "Nissan" },
+      { icon: "⚡", name: "Hyundai" },
+      { icon: "🔥", name: "Kia" },
+    ].map((brand) => (
+      <div
+        key={brand.name}
+        className="group rounded-3xl border border-yellow-500/20 bg-gradient-to-b from-zinc-900/90 to-black p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400 hover:shadow-[0_0_35px_rgba(250,204,21,0.15)]"
+      >
+        <div className="mb-4 text-5xl transition-transform duration-300 group-hover:scale-110">
+          {brand.icon}
         </div>
 
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-          {brands.map((brand) => (
-            <div
-              key={brand}
-              className="group cursor-pointer rounded-3xl border border-yellow-500/20 bg-zinc-900/80 p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-lg hover:shadow-yellow-500/10"
-            >
-              <h3 className="text-lg font-semibold text-zinc-200 transition group-hover:text-yellow-400">
-                {brand}
-              </h3>
-            </div>
-          ))}
-        </div>
-      </section>
+        <h3 className="text-xl font-semibold text-white transition-colors duration-300 group-hover:text-yellow-400">
+          {brand.name}
+        </h3>
+
+        <div className="mx-auto mt-4 h-px w-10 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
+      </div>
+    ))}
+
+  </div>
+{/* OUTSIDE GRID */}
+<div className="mt-16 text-center">
+  <p className="text-zinc-500 uppercase tracking-[0.35em] text-xs">
+    And Many More Brands Available On Request
+  </p>
+</div>
+</section>
+    </div>
     </div>
   );
 }
